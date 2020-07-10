@@ -28,10 +28,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mv) {
 		logger.info("URI:/");
-		
-		
 		mv.setViewName("/main/home");
-		
 		return mv;
 	}
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
