@@ -1,0 +1,11 @@
+1.Controller에 원하는 (/board/detail) URI를 처리하는 메소드를 생성
+2. 해당 메소드가 GET이고 , 화면을 보여주는 경우,jsp를 생성
+3. Controller에서 원하는 정보를 가져오기 위해 Service에게 메소드를 이용하여 일을 시킴(Service에 새로운 메소드 생성)
+4. Service는 Controller가 시킨 일을 하기 위해 메소드를 생성(Service와 ServiceImp)하고,Dao를 통해 필요한 정보를 가져옴
+5. Dao는 Service가 시킨 일을 하기 위해 메소드를 생성
+6. Mapper는 Dao에 있는 일을 하기 위해 쿼리문을 생성
+7. Controller 에서 Service가 처리한 정보를 화면에 전송
+
+post : 노출 되면 안되는 정보  // GET: 그외 나머지
+
+https://all-record.tistory.com/165

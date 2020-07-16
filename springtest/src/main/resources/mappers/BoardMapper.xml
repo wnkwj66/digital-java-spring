@@ -30,4 +30,23 @@
   		where
   			num = #{board.num}
   </update>
+  <select id="listPage" resultType="kr.green.springtest.vo.BoardVo">
+		select
+			*
+		from
+			board
+		order by number desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+    <select id="countBoard">
+		select
+			count(number)
+		from
+			board
+	</select>
+	<select id="getTotalCount" resultType="int">
+	select count(*)
+		from board 
+		where isDel = 'N'
+	</select>
 </mapper>

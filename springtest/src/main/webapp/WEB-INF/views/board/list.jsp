@@ -35,3 +35,24 @@
 		</c:if>
 	</tbody>
 </table>
+<ul class="pagination">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item active"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+<form>
+	<div class="input-group mt-3 mb-3">
+	  <select class="form-control" id="sel1">
+	    <option>전체</option>
+	    <option>제목</option>
+	    <option>작성자</option>
+	    <option>내용</option>
+	  </select>
+	  <input type="text" class="form-control" placeholder="Search">
+	  <div class="input-group-append">
+	    <button class="btn btn-success" type="submit">검색</button>
+	  </div>
+	</div>
+</form>
