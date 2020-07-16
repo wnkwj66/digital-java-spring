@@ -1,7 +1,6 @@
 package kr.green.spring.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.spring.pagination.Criteria;
+import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
 import kr.green.spring.vo.BoardVo;
 
@@ -23,18 +24,21 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-	public ModelAndView boardListGet(ModelAndView mv) {
+	public ModelAndView boardListGet(ModelAndView mv,Criteria cri) {
 		logger.info("URI:/board/list");
 		mv.setViewName("/board/list");
+		PageMaker pm = boardService.getPageMaker(cri);
 		ArrayList<BoardVo> list;
 //		생성자  new 는 DB에서 만들어서 전달해줌
-		list = boardService.getBoardList();
+		list = boardService.getBoardList(cri);
 		mv.addObject("list",list);
+		mv.addObject("pm",pm);
+		System.out.println(cri);
 		return mv;
 	}
 //조회 메서드
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv,Integer num) { //int로 안하는 이유 : Null값을 포함하지 않기 때문에 잘못된 접근 시 고려함
+	public ModelAndView boardDetailGet(ModelAndView mv,Integer num,Criteria cri) { //int로 안하는 이유 : Null값을 포함하지 않기 때문에 잘못된 접근 시 고려함
 		logger.info("URI:/board/detail");
 		mv.setViewName("/board/detail");
 		BoardVo board = null;
@@ -47,6 +51,7 @@ public class BoardController {
 				board.setViews(board.getViews()+1);
 			}
 		}
+		mv.addObject("cri",cri);
 		return mv;
 	}
 //	글쓰기 메서드 
