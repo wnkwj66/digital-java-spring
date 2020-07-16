@@ -15,7 +15,7 @@
 		        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signin">Sign in</a>
 		      	</li>
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signup">Sing up</a>
+		        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signup">Sign Up</a>
 		      	</li>    
 	    	</ul>
 		</div> 
