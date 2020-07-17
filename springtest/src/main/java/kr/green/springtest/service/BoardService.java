@@ -20,7 +20,7 @@ public interface BoardService {
 
 	void deleteBoard(Integer num);
 
-	PageMaker getPageMaker(Criteria cri);
+	PageMaker getPageMakerByBoard(Criteria cri);
 
 
 }

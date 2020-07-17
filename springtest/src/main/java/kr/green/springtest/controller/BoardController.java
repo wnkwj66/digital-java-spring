@@ -22,18 +22,19 @@ public class BoardController {
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
 	public ModelAndView boardListGet(ModelAndView mv,Criteria cri) {
 		mv.setViewName("/board/list");
-		PageMaker pm = boardService.getPageMaker(cri);
+		PageMaker pm = boardService.getPageMakerByBoard(cri);
 		ArrayList<BoardVo> list = boardService.getBoardList(cri);
 		mv.addObject("list",list);
 		mv.addObject("pm",pm);
-//		System.out.println(list);
+		System.out.println(pm);
 		return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv,Integer num) {
+	public ModelAndView boardDetailGet(ModelAndView mv,Integer num,Criteria cri) {
 		mv.setViewName("/board/detail");
 		BoardVo board = boardService.view(num);
 		mv.addObject("board", board);
+		mv.addObject("cri",cri);
 		return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
