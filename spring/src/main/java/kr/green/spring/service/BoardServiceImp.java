@@ -77,4 +77,17 @@ public class BoardServiceImp implements BoardService {
 		return pm;
 	}
 
+	@Override
+	public int updateLike(String num, String id) {
+		if(boardDao.isLike(Integer.parseInt(num),id)==0) {
+			boardDao.insertLike(Integer.parseInt(num),id);
+		}else {
+			return -1;
+		}
+		BoardVo board = boardDao.getBoard(Integer.parseInt(num));
+		boardDao.updateBoard(board);
+		board = boardDao.getBoard(Integer.parseInt(num));
+		return board.getLike();
+	}
+
 }

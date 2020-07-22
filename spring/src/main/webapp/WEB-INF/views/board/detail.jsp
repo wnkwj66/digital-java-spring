@@ -23,6 +23,11 @@
 		<label>조회수</label>
 		<input type="text" class="form-control" name="views" value="${board.views}" readonly>
 	</div>
+		<div class="form-group">
+		<label>추천수</label>
+		<input type="text" class="form-control" name="like" value="${board.like}" readonly>
+		<button type="button" class="btn btn-outline-success col-12" id="like">추천</button>
+	</div>
 	<div class="form-group">
 		<label>내용</label>
 		<textarea class="form-control" rows="5" name="content" readonly>${board.content}</textarea>
@@ -36,3 +41,30 @@
 	<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button>수정</button></a>
 	<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button>삭제</button></a>
 </c:if>
+<script>
+	$(function(){
+		$('#like').click(function(){
+			var num = $('input[name=num]').val();
+			 $.ajax({
+			        async:true,
+			        type:'POST',
+			        data:num,
+			        url:"<%=request.getContextPath()%>/board/like",
+			        dataType:"json",
+			        contentType:"application/json; charset=UTF-8",
+			        //↓성공하면 서버에서 보내준 데이터 값을 콘솔로그로 하여 찍어봄
+			        success : function(data){
+				        if(!data['isUser']){
+					        alert("로그인한 회원만  추천할 수 있습니다.")
+					    }else{
+						    if(data['like']<0){
+							    alert('추천은 한 번만 가능합니다.')
+							}else{
+								$('input[name=like]').val(data['like'])
+							}
+						}
+			        }
+			 });
+		})
+	})
+</script>

@@ -15,3 +15,24 @@
 	<button class="btn btn-success col-12">로그인</button>
 </form>
 </c:if>
+<script>
+	$(function(){
+		$('#ajax').click(function(){
+			var id = "qwe123";
+		    $.ajax({
+		        async:true,
+		        type:'POST',
+		        data:id,
+		        url:"test2",
+		        dataType:"json",
+		        contentType:"application/json; charset=UTF-8",
+		     	 //↓성공하면 서버에서 보내준 데이터 값을 콘솔로그로 하여 찍어봄
+		        success : function(data){
+		          console.log(data);
+		          $('#id').val(data['id'])
+		          $('#pw').val(data['pw'])
+		        }
+		    });
+		})
+	})
+</script>
