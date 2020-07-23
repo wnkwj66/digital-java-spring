@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
- <form action="<%=request.getContextPath() %>/board/register" method="post">
+ <form action="<%=request.getContextPath() %>/board/register" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label>게시글 제목</label>
 		<input type="text" class="form-control" name="title" >
@@ -15,6 +15,11 @@
 		<label>내용</label>
 		<textarea class="form-control" rows="5" name="content" >${board.content}</textarea>
 	</div>
+	<div class="form-group">
+        <label>파일</label>
+        <input type="file" class="form-control" name="file2"/>
+    </div>
 	<button>등록</button>
+
 </form>
 

@@ -14,8 +14,15 @@ public class BoardVo {
 	private int views;
 	private Date delDate;
 	private int like;
+	private String file;
 	
 	
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
 	public int getLike() {
 		return like;
 	}
@@ -84,6 +91,12 @@ public class BoardVo {
 	public String toString() {
 		return "BoardVo [num=" + num + ", writer=" + writer + ", title=" + title + ", content=" + content
 				+ ", registerDate=" + registerDate + ", isDel=" + isDel + ", views=" + views + ", delDate=" + delDate
-				+ ", like=" + like + "]";
+				+ ", like=" + like + ", file=" + file + "]";
 	}
+	//첫번째 언더바를 찾아서 뒤에 있는부분 추출
+	public String getOriFile() {
+		int index = file.indexOf("_");
+		return file.substring(index+1);
+	}
+	
 }

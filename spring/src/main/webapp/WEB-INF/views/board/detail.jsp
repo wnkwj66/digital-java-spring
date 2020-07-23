@@ -23,7 +23,7 @@
 		<label>조회수</label>
 		<input type="text" class="form-control" name="views" value="${board.views}" readonly>
 	</div>
-		<div class="form-group">
+	<div class="form-group">
 		<label>추천수</label>
 		<input type="text" class="form-control" name="like" value="${board.like}" readonly>
 		<button type="button" class="btn btn-outline-success col-12" id="like">추천</button>
@@ -32,6 +32,11 @@
 		<label>내용</label>
 		<textarea class="form-control" rows="5" name="content" readonly>${board.content}</textarea>
 	</div>
+	<c:if test="${board.file != null }">
+		<div>
+			<a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}">${board.oriFile}</a>
+		</div>
+	</c:if>
 </form>
 <a href="<%=request.getContextPath()%>/board/list?&page=${cri.page}&type=${cri.type}&search=${cri.search}"><button>목록</button></a>
 <c:if test="${user != null}">
