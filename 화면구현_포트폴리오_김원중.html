@@ -1,0 +1,85 @@
+<html><head>
+<title>스프링</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/spring/resources/css/global.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/b1e3c8f87d.js" crossorigin="anonymous"></script><link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all" rel="stylesheet"><link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all" rel="stylesheet"><link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" rel="stylesheet">
+</head>
+<body>
+    
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<div class="container">
+	  	<a class="navbar-brand" href="#">Navbar</a>
+	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+	    	<span class="navbar-toggler-icon"></span>
+	  	</button>
+	  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+	    	<ul class="navbar-nav">
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="/spring/">메인</a>
+		      	</li>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="/spring/board/list">게시판</a>
+		      	</li>
+		      	
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="/spring/test">로그인</a>
+		      	</li>    
+		      	
+		      	
+	    	</ul>
+		</div> 
+	</div> 
+</nav>
+    <div class="container body">        
+		
+
+
+<h1>
+로그인
+</h1>
+<form action="/spring/" method="post">
+	<div class="form-group">
+		<input class="form-control" type="text" name="id" placeholder="아이디">
+	</div>
+	<div class="form-group">
+		<input class="form-control" type="password" name="pw" placeholder="비밀번호">
+	</div>
+	<button class="btn btn-success col-12">로그인</button>
+</form>
+
+<script>
+	$(function(){
+		$('#ajax').click(function(){
+			var id = "qwe123";
+		    $.ajax({
+		        async:true,
+		        type:'POST',
+		        data:id,
+		        url:"test2",
+		        dataType:"json",
+		        contentType:"application/json; charset=UTF-8",
+		     	 //↓성공하면 서버에서 보내준 데이터 값을 콘솔로그로 하여 찍어봄
+		        success : function(data){
+		          console.log(data);
+		          $('#id').val(data['id'])
+		          $('#pw').val(data['pw'])
+		        }
+		    });
+		})
+	})
+</script>
+	</div>                                                  
+	
+<div class="jumbotron jumbotron-fluid mb-0">
+  <div class="container">
+    <h1>푸터</h1>      
+  </div>
+</div>
+
+</body></html>

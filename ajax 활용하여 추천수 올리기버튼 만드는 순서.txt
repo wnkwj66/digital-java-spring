@@ -1,0 +1,14 @@
+-ajax 활용하여 추천수 올리기버튼 만드는 순서=-
+
+1.DB의 board 테이블에 up속성 추가 , 기본값 0  up(추천수)
+
+2.DB에서 up테이블 추가
+ -속성 : num,boNum,id
+
+3.BoardVo에 up속성 추가 , getter/setter추가, toString변경
+
+4.detail.jsp에 up(추천)버튼 추가, 추천수 확인 항목 추가
+
+5.up(추천)버튼 클릭 시 ajax 이용하여 작업
+
+6.컨트롤러에 up버튼에 맞는 기능 구현

@@ -2,31 +2,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <form method="post" action="<%=request.getContextPath()%>/board/register">
-	<form>
-	<div class="form-group">
-		<label>게시글 번호</label>
-		<input type="text" class="form-control" name="num" value="${board.num}" readonly>
+	<div class="board-header detail form-group">
+
 	</div>
-	<div class="form-group">
-		<label>게시글 제목</label>
-		<input type="text" class="form-control" name="title" value="${board.title}" >
+	<div class="board-title detail form-group">
+		<input class="form-control" name="title" placeholder="제목">
 	</div>
-	<div class="form-group">
-		<label>작성자</label>
-		<input type="text" class="form-control" name="writer" value="${board.writer}" >
+	<div class="board-content detail form-group">
+		<textarea class="form-control modify" name="content">${board.content}</textarea>
 	</div>
-	<div class="form-group">
-		<label>작성일</label>
-		<input type="text" class="form-control" name="registerDate" value="${board.registerDate}" readonly>
+	<div class="float-right btn-groups">
+		<a href="<%=request.getContextPath()%>/board/list"><button class="btn btn-outline-success" type="button">목록</button></a>
+		<a href="#"><button class="btn btn-outline-success">등록</button></a>
 	</div>
-	<div class="form-group">
-		<label>조회수</label>
-		<input type="text" class="form-control" name="views" value="${board.views}" readonly>
-	</div>
-	<div class="form-group">
-		<label>내용</label>
-		<textarea class="form-control" rows="5" name="content" >${board.content}</textarea>
-	</div>
-	</form>
-	<button type="submit">전송</button>
 </form>

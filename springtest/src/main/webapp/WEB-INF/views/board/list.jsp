@@ -35,30 +35,28 @@
 		</c:if>
 	</tbody>
 </table>
-
-<!-- 페이지네이션 Start -->
+<!-- 페이지네이션 start -->
 <ul class="pagination justify-content-center">
-  <li class="page-item <c:if test="${pm.prev }">disabled</c:if>"><a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.startPage-1}&search=${pm.cri.search}&type=${pm.cri.type}">Previous</a></li>
-  <c:forEach var="index" begin="${pm.startPage}" end = "${pm.endPage}">
-  	<li class="page-item <c:if test="${pm.cri.page == index}">active</c:if>"><a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&search=${pm.cri.search}&type=${pm.cri.type}">${index}</a></li>
-  </c:forEach>
-  <li class="page-item <c:if test="${pm.next }">disabled</c:if>"><a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.endPage+1}&search=${pm.cri.search}&type=${pm.cri.type}">Next</a></li>
+  	<li class="page-item <c:if test="${!pm.prev}">disabled</c:if>"><a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.startPage-1}&search=${pm.cri.search}&type=${pm.cri.type}">Previous</a></li>
+	<c:forEach var="index" begin="${pm.startPage}" end="${pm.endPage}">
+  		<li class="page-item <c:if test="${pm.cri.page == index}">active</c:if>"><a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&search=${pm.cri.search}&type=${pm.cri.type}">${index}</a></li>
+  	</c:forEach>
+  	<li class="page-item <c:if test="${!pm.next}">disabled</c:if>"><a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pm.endPage+1}&search=${pm.cri.search}&type=${pm.cri.type}">Next</a></li>
 </ul>
-<!-- 페이지네이션 End -->
-
-<!-- 검색 그룹 start -->
-<form actopm="<%=request.getContextPath()%>/board/list">
+<!-- 페이지네이션 end -->
+<!-- 검색 박스 start -->
+<form action="<%=request.getContextPath()%>/board/list">
 <div class="input-group mb-3">
 	<select class="form-control" name="type">
-		<option value = "0" <c:if test="${pm.cri.type == 0}">selected</c:if>>전체</option>
-		<option value = "1" <c:if test="${pm.cri.type == 1}">selected</c:if>>작성자</option>
-		<option value = "2" <c:if test="${pm.cri.type == 2}">selected</c:if>>제목</option>
-		<option value = "3" <c:if test="${pm.cri.type == 3}">selected</c:if>>내용</option>
+		<option value="0" <c:if test="${pm.cri.type == 0}">selected</c:if>>전체</option>
+		<option value="1" <c:if test="${pm.cri.type == 1}">selected</c:if>>작성자</option>
+		<option value="2" <c:if test="${pm.cri.type == 2}">selected</c:if>>제목</option>
+		<option value="3" <c:if test="${pm.cri.type == 3}">selected</c:if>>내용</option>
 	</select>
-  <input type="text" class="form-control" placeholder="Search" name="search" value="${pm.cri.search}">
-  <div class="input-group-append">
-    <button class="btn btn-success" type="submit">검색</button>
-  </div>
+	<input type="text" class="form-control" placeholder="Search" name="search" value="${pm.cri.search}">
+	<div class="input-group-append">
+		<button class="btn btn-success" type="submit">검색</button>
+	</div>
 </div>
 </form>
-<!-- 검색 그룹 end -->
+<!-- 검색 박스 end -->
