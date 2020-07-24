@@ -14,8 +14,16 @@ public class BoardVo {
 	private char isDel;
 	private int views;
 	private int up;
+	private String file;
 	
 	
+	
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
 	public int getUp() {
 		return up;
 	}
@@ -86,7 +94,11 @@ public class BoardVo {
 	public String toString() {
 		return "BoardVo [num=" + num + ", title=" + title + ", content=" + content + ", writer=" + writer
 				+ ", registerDate=" + registerDate + ", delDate=" + delDate + ", isDel=" + isDel + ", views=" + views
-				+ ", up=" + up + "]";
+				+ ", up=" + up + ", file=" + file + "]";
 	}
-	
+	//↓ DB에 저장된 file 이름은 년도/월/일/uuid_파일명.확장자 로 되어있는데 사용자는 파일명.확장자만 보여줘야하기 때문에 아래 작업을 통해 원본 파일명을 알려줌
+	public String getOriFile() {
+		int index = file.indexOf("_"); 
+		return file.substring(index+1);
+	}
 }
