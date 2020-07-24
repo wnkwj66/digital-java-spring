@@ -143,3 +143,6 @@
 		.display-none{
 			display: none;
 		}
+		label.error{
+			color:red;
+		}
