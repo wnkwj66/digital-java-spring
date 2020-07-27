@@ -12,7 +12,7 @@
 		<textarea class="form-control modify" name="content">${board.content}</textarea>
 	</div>
 	   <div class="board-title detail form-group">
-		<input class="form-control" name="file2" type="file">
+	   <input class="form-control" name="file2" type="file">
 	</div>
 	<div class="float-right btn-groups">
 		<a href="<%=request.getContextPath()%>/board/list"><button class="btn btn-outline-success" type="button">목록</button></a>
