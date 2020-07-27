@@ -56,4 +56,14 @@ public class UserServiceImp implements UserService {
 		return userDao.getUser(id);
 	}
 
+	@Override
+	public void newPw(String id, String newPw) {
+		//요청한 아이디에 회원 정보를 가져옴
+	    UserVo user = getUser(id.trim());
+	    String encodePw = passwordEncoder.encode(newPw);
+	    if(user == null) return;
+	    user.setPw(encodePw);
+	    userDao.updatePw(user);
+	}
+
 }
