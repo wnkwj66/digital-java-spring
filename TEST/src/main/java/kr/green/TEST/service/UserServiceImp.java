@@ -15,5 +15,16 @@ public class UserServiceImp implements UserService{
 	public UserVo getUser(String id) {
 		return userDao.getUser(id);
 	}
+	@Override
+	public UserVo isSignin(UserVo user) {
+		UserVo dbUser = userDao.getUser(user.getId());
+		return dbUser;
+	}
+	@Override
+	public boolean signup(UserVo user) {
+		// TODO Auto-generated method stub
+		userDao.insertUser(user);
+		return true;
+	}
 
 }

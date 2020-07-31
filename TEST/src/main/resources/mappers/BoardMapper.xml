@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.TEST.dao.BoardDao">
+  <select id="getBoardList" resultType="kr.green.TEST.vo.BoardVo">
+    select * 
+    from board 
+    where isDel ='N'
+  </select>
+  <select id="getBoard" resultType="kr.green.TEST.vo.BoardVo">
+  	select *
+  	from board
+  	where num =#{num}
+  </select>
+  <insert id="registerBoard">
+  	insert into
+  		board(tilte,writer,content)
+  		values(#{board.title},#{board.writer},#{board.content})
+  </insert>
+</mapper>

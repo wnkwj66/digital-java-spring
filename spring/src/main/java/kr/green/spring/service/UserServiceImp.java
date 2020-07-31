@@ -40,7 +40,7 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public UserVo isSignin(UserVo user) {
-		UserVo dbUser = userDao.getUser(user.getId()); //!!!!!!!!!해석 체크해서 유저정보 있으면 가져옴??
+		UserVo dbUser = userDao.getUser(user.getId()); //!!!!!!!!!해석(체크해서 유저정보 있으면) get가져옴??
 		if(dbUser != null && passwordEncoder.matches(user.getPw(), dbUser.getPw())) //입력한 비밀번호와 암호화된 비밀번호가 같은지 비교 :matches
 			return dbUser;
 		return null;

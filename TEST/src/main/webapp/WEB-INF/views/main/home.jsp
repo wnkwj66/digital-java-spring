@@ -3,8 +3,12 @@
     pageEncoding="UTF-8"%>
 <div style="height: 800px">
 	<h1>
-		Hello world!22222  
+		Hello world!
 	</h1>
 	<P> ${setHeader}. </P>
+	<button>${setBtn}.</button>
+	<button class="btn-success col-12">로그인</button>
+	${user}
+	${res}
 </div>
 

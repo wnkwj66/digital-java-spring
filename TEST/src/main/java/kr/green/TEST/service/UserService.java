@@ -4,5 +4,9 @@ import kr.green.TEST.vo.UserVo;
 
 public interface UserService {
 	
-	UserVo getUser(String string);
+	UserVo getUser(String id);
+
+	UserVo isSignin(UserVo user);
+
+	boolean signup(UserVo user);
 }

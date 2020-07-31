@@ -18,9 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.green.springtest.service.UserService;
 import kr.green.springtest.vo.UserVo;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
@@ -36,6 +33,7 @@ public class HomeController {
 		if(user != null) {
 			mv.setViewName("redirect:/board/list");
 			mv.addObject("user",user);
+			System.out.println("123");
 		}
 		return mv;
 	}

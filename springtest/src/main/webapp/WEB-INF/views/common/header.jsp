@@ -14,15 +14,12 @@
 		      	</li>
 				<c:if test="${user == null}">		      	
 			      	<li class="nav-item">
-			        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signin">Sign in</a>
-			      	</li>
-			      	<li class="nav-item">
-			        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signup">Sign Up</a>
+			        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signup">회원가입</a>
 			      	</li>    
 		      	</c:if>
 		      	<c:if test="${user != null}">		      	
 			      	<li class="nav-item">
-			        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signout">Sign out</a>
+			        	<a class="nav-link" href="<%=request.getContextPath()%>/user/signout">로그아웃</a>
 			      	</li>
 		      	</c:if>
 	    	</ul>

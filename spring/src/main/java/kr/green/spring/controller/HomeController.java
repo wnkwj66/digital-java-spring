@@ -42,7 +42,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ModelAndView homePost(ModelAndView mv,UserVo user) {
 		logger.info("URI:/");
-		UserVo dbUser = userService.isSignin(user);
+		UserVo dbUser = userService.isSignin(user);//UserVo 의 dbUser에 userService.siSign(user)메서드 정보를 넣는다?
 		if(dbUser != null) {
 			mv.setViewName("redirect:/board/list");
 			mv.addObject("user",dbUser);
@@ -66,9 +66,9 @@ public class HomeController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView signupPost(ModelAndView mv,UserVo user) {
 		logger.info("URI:/signup:Post");
-		if(userService.signup(user)) {
+		if(userService.signup(user)) {//회원가입에 성공하면  메인페이지로 가라
 			mv.setViewName("redirect:/");
-		}else {
+		}else { //실패하면 사인업 페이지로 돌아가서 남은 정보들 냄겨놔라 
 			mv.setViewName("redirect:/signup");
 			mv.addObject("user",user);
 			mv.addObject("id",user.getId());
