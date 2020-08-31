@@ -14,7 +14,7 @@
 	</div>
 	<button class="btn btn-success col-12">로그인</button>
 </form>
-<input type="hidden" value="${isLogin }" id="isLogin">
+<input type="hidden" value="${isLogin}" id="isLogin">
 <input type="hidden" value="${id}" id="id">
 </c:if>
 <script type="text/javascript">
