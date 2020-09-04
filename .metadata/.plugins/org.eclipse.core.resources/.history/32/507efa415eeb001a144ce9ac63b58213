@@ -1,0 +1,14 @@
+package kr.green.portfolio.service;
+
+import kr.green.portfolio.vo.UserVo;
+
+public interface UserService {
+
+	public UserVo getUser(String id);
+
+	boolean signup(UserVo user);
+
+	UserVo isUser(UserVo inputUser);
+
+
+}

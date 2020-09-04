@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AppointmentMapper">
+	
+	<insert id="reserve" parameterType="AppointmentDto">
+	    
+		INSERT INTO appointment
+		VALUES(#{seqNo}, #{sectionNo}, #{id}, #{startTime})
+	    
+	</insert>
+	
+	<select id="getBusBySeq" resultType="int">
+	    
+	    SELECT bus_no AS busNo
+	    FROM time_table
+	    WHERE seq_no = #{seqNo}
+	    
+	</select>
+	
+	<update id="reduceSeat">
+	    
+	    UPDATE bus
+	    SET seat_cnt = seat_cnt - 1
+	    WHERE bus_no = #{busNo}
+	    
+	</update>
+	
+	<select id="getAppointmentByUserId" resultType="AppointmentDto">
+	    
+	    SELECT 
+	    	seq_no AS seqNo,
+	    	section_no AS sectionNo,
+	    	id,
+	    	start_time AS startTime
+	    FROM appointment
+	    WHERE id = #{id}
+	    
+	</select>
+	
+	<delete id="deleteAppointmentById" parameterType="String">
+	    
+	    DELETE FROM appointment
+	    WHERE id = #{id}
+	    
+	</delete>
+	
+</mapper>

@@ -1,0 +1,17 @@
+package kr.green.portfolio.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class RestTestController {
+
+	@GetMapping("/apitest")
+	public String callapihttp() {
+		
+		StringBuffer result = new StringBuffer();
+		try {
+			String urlstr = 
+		}
+	}
+}

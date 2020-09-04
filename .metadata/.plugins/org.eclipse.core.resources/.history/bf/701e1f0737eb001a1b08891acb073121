@@ -1,0 +1,40 @@
+package kr.green.portfolio.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import kr.green.portfolio.dao.UserDao;
+import kr.green.portfolio.vo.UserVo;
+
+@Service
+public class UsersServiceImp implements UserService{
+	@Autowired
+	UserDao userDao;
+
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+
+	@Override
+	public UserVo getUser(String id) {
+		// TODO Auto-generated method stub
+		return userDao.getUser(id);
+	}
+
+	@Override
+	public boolean signup(UserVo user) {
+		//비밀번호 암호화
+		String encodePw = passwordEncoder.encode(user.getPw());
+		user.setPw(encodePw);
+		
+		userDao.insertUser(user);
+		return true;
+	}
+
+	@Override
+	public UserVo isUser(UserVo inputUser) {
+		UserVo user = userDao.getUser(inputUser.getId());
+		return null;
+	}
+
+}

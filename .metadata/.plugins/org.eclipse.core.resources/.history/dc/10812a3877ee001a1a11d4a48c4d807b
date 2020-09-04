@@ -1,0 +1,5 @@
+package kr.green.portfolio.vo;
+
+public class BusVo {
+
+}

@@ -51,7 +51,6 @@ public class HomeController {
 		}else {
 			mv.setViewName("redirect:/user/signup");
 		}
-		
 		return mv;
 	}
 	@RequestMapping(value = "/user/signout", method = RequestMethod.GET)

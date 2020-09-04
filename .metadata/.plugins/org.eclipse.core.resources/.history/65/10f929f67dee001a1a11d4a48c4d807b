@@ -1,0 +1,18 @@
+package kr.green.portfolio.util;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MyUtils {
+// 버스목록 - HashMap으로 정의
+	public static Map<String, String> getBusId(){
+		
+		Map<String, String> result = new HashMap<String, String>();
+		
+		result.put("센트럴시티(서울)","NAEK020");
+		result.put("청주(센트럴)","NAEK401");
+		result.put("센트럴","NAEK020");
+		
+		return result;
+	}
+}
