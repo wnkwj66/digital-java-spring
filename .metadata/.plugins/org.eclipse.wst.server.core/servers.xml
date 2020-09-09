@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/localhost-config" deployDir="wtpwebapps" hostname="localhost" id="localhost" name="localhost" runtime-id="localhost" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="30">
-    <list key="modules" value0="spring::org.eclipse.jst.jee.server:spring::jst.web::2.5" value1="TEST::org.eclipse.jst.jee.server:TEST::jst.web::2.5" value2="springtest::org.eclipse.jst.jee.server:springtest::jst.web::2.5" value3="portfolio::org.eclipse.jst.jee.server:portfolio::jst.web::2.5" value4="project::org.eclipse.jst.jee.server:project::jst.web::2.5"/>
-  </server>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/localhost at springtest-config" deployDir="wtpwebapps" hostname="localhost" id="localhost at springtest" name="localhost at springtest" runtime-id="localhost" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="9">
-    <list key="modules" value0="springtest::org.eclipse.jst.jee.server:springtest::jst.web::2.5"/>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers2/localhost at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="localhost at localhost" name="localhost at localhost" runtime-id="localhost" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="2">
+    <list key="modules" value0="project::org.eclipse.jst.jee.server:project::jst.web::2.5" value1="portfolio::org.eclipse.jst.jee.server:portfolio::jst.web::2.5"/>
   </server>
 </servers>

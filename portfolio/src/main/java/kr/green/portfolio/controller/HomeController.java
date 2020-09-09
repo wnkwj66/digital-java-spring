@@ -1,6 +1,7 @@
 package kr.green.portfolio.controller;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -101,11 +101,15 @@ public class HomeController {
 	public ModelAndView bus(BusVo busVo, ModelAndView mv) throws Exception{
 		
 		Map<String , String> result = MyUtils.getTerminalId();
-		
+//		Iterator<String> it = result.keySet().iterator();
+//		while(it.hasNext()) {
+//			String tmp = it.next();
+//			System.out.println(tmp+":"+result.get(tmp));
+//		}
 		String depTerminalNm = result.get(busVo.getDepTerminalNm());
 		System.out.println("depTerminalNm:"+ depTerminalNm);
 		String arrTerminalNm = result.get(busVo.getArrTerminalNm());
-		System.out.println("arrTermianlNm"+ arrTerminalNm);
+		System.out.println("arrTerminalNm:"+ arrTerminalNm);
 		String depPlandTime = busVo.getDepPlandTime();
 		String arrPlandTime = busVo.getArrPlandTime();
 		

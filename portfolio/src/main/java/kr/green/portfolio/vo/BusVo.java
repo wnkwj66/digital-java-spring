@@ -18,6 +18,36 @@ public class BusVo {
 	private String economyCharge;
 	private String prestigeCharge;
 	private String vihicleId;
+	private String depPlaceNm;//출발정류장
+	private String arrPlaceNm;//도착정류장
+	private int charge;//요금
+	private String gradeNm;//등급
+	
+	
+	public String getDepPlaceNm() {
+		return depPlaceNm;
+	}
+	public void setDepPlaceNm(String depPlaceNm) {
+		this.depPlaceNm = depPlaceNm;
+	}
+	public String getArrPlaceNm() {
+		return arrPlaceNm;
+	}
+	public void setArrPlaceNm(String arrPlaceNm) {
+		this.arrPlaceNm = arrPlaceNm;
+	}
+	public int getCharge() {
+		return charge;
+	}
+	public void setCharge(int charge) {
+		this.charge = charge;
+	}
+	public String getGradeNm() {
+		return gradeNm;
+	}
+	public void setGradeNm(String gradeNm) {
+		this.gradeNm = gradeNm;
+	}
 	public String getBuslineNm() {
 		return buslineNm;
 	}
@@ -70,8 +100,10 @@ public class BusVo {
 	public String toString() {
 		return "BusVo [buslineNm=" + buslineNm + ", arrTerminalNm=" + arrTerminalNm + ", arrPlandTime=" + arrPlandTime
 				+ ", depTerminalNm=" + depTerminalNm + ", depPlandTime=" + depPlandTime + ", economyCharge="
-				+ economyCharge + ", prestigeCharge=" + prestigeCharge + ", vihicleId=" + vihicleId + "]";
+				+ economyCharge + ", prestigeCharge=" + prestigeCharge + ", vihicleId=" + vihicleId + ", depPlaceNm="
+				+ depPlaceNm + ", arrPlaceNm=" + arrPlaceNm + ", charge=" + charge + ", gradeNm=" + gradeNm + "]";
 	}
+	
 	
 	
 }

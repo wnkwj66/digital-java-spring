@@ -25,9 +25,9 @@ public class ApiExplorer {
         urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=io%2BAwzXnXAqMhpqXqEbVq3AGk1cLF98zwAFmW7nBqnKMJ8wmryzTJ39SGi9fBG1gvXFg9aFeEremKPtRM5bPfQ%3D%3D"); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
-        urlBuilder.append("&" + URLEncoder.encode("depTerminalId","UTF-8") + "=" + URLEncoder.encode("NAEK010", "UTF-8")); /*출발터미널ID*/
-        urlBuilder.append("&" + URLEncoder.encode("arrTerminalId","UTF-8") + "=" + URLEncoder.encode("NAEK300", "UTF-8")); /*도착터미널ID*/
-        urlBuilder.append("&" + URLEncoder.encode("depPlandTime","UTF-8") + "=" + URLEncoder.encode("20200101", "UTF-8")); /*출발일*/
+        urlBuilder.append("&" + URLEncoder.encode("depTerminalId","UTF-8") + "=" + URLEncoder.encode(depTerminalId, "UTF-8")); /*출발터미널ID*/
+        urlBuilder.append("&" + URLEncoder.encode("arrTerminalId","UTF-8") + "=" + URLEncoder.encode(arrTerminalId, "UTF-8")); /*도착터미널ID*/
+        urlBuilder.append("&" + URLEncoder.encode("depPlandTime","UTF-8") + "=" + URLEncoder.encode(depPlandTime, "UTF-8")); /*출발일*/
         urlBuilder.append("&" + URLEncoder.encode("_type","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*json으로 받기위해*/
         
         URL url = new URL(urlBuilder.toString());
@@ -48,14 +48,14 @@ public class ApiExplorer {
         }
         rd.close();
         conn.disconnect();
-//        System.out.println(sb.toString());
+        System.out.println("-------------");
         return sb.toString();
     }
     
     public static List<BusVo> getBusJson(String depTerminalId, String arrTerminalId, String depPlandTime) throws Exception{
     	String result = getTicketingData(depTerminalId, arrTerminalId, depPlandTime);
     	//json처럼 생긴 String을 Json으로 만들기
-    	
+    	List<BusVo> list = null;
     	JSONParser parser = new JSONParser();
     	JSONObject jsonObj = (JSONObject) parser.parse(result); //리턴값이 오브젝트이기 때문에 json오브젝트로 다운캐스팅
     	
@@ -64,23 +64,29 @@ public class ApiExplorer {
     	System.out.println("response:"+j_response);
     	JSONObject j_body = (JSONObject) j_response.get("body");
     	System.out.println("body:"+j_body);
-    	JSONObject j_items = (JSONObject) j_body.get("items");
-    	System.out.println("items:"+j_items);
-    	JSONArray a_item = (JSONArray) j_items.get("item");
-    	a_item.remove(0); //0번째 필요없음
-    	System.out.println("item: "+a_item);// 이 값을 사용
-    	
-    	//1.Gson을 클래스로 (BusVo)
-    	//2. Gson을 배열로 (List타입의 <BusVo>)
-    	
-    	Gson gson = new Gson();
-    	
-    	List<BusVo> list = gson.fromJson(a_item.toString(),new TypeToken<List<BusVo>>(){}.getType());
-		
-    	for(BusVo busVo : list) {
-    		System.out.println(busVo.getArrPlandTime());
+    	System.out.println("totalCount:"+j_body.get("totalCount").getClass());
+    	if((Long)j_body.get("totalCount") !=0) {
+	    	JSONObject j_items = (JSONObject) j_body.get("items");
+	    	System.out.println("items:"+j_items);
+	    	JSONArray a_item = (JSONArray) j_items.get("item");
+	    	
+	    	
+	    	
+    		a_item.remove(0); //0번째 필요없음
+	    	System.out.println("item: "+a_item);// 이 값을 사용
+	    	
+	    	//1.Gson을 클래스로 (BusVo)
+	    	//2. Gson을 배열로 (List타입의 <BusVo>)
+	    	
+	    	Gson gson = new Gson();
+	    	
+	    	list = gson.fromJson(a_item.toString(),new TypeToken<List<BusVo>>(){}.getType());
+			
+	    	for(BusVo busVo : list) {
+	    		System.out.println(busVo);
+	    	}
+	    	
     	}
-    	
     	return list;
     }
 }

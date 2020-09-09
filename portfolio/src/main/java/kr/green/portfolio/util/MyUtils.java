@@ -12,6 +12,10 @@ public class MyUtils {
 		result.put("센트럴시티(서울)","NAEK020");
 		result.put("청주(센트럴)","NAEK401");
 		result.put("센트럴","NAEK020");
+		result.put("대구공항","NAEK861");
+		result.put("아주대","NAEK113");
+		result.put("안성중대","NAEK131");
+		result.put("안성대림","NAEK137");
 		
 		return result;
 	}
