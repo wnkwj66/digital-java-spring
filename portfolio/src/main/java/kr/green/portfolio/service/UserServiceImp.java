@@ -10,7 +10,7 @@ import kr.green.portfolio.dao.UserDao;
 import kr.green.portfolio.vo.UserVo;
 
 @Service
-public class UsersServiceImp implements UserService{
+public class UserServiceImp implements UserService{
 	@Autowired
 	UserDao userDao;
 
@@ -50,6 +50,8 @@ public class UsersServiceImp implements UserService{
 
 	@Override
 	public UserVo isUser(UserVo inputUser) {
+		//userDao인스턴스(객체)의 getUser()호출 : getUser는 inputUser의 getId메서드를 호출한 값을 매개변수로 가짐
+		//= UserVo user 는  UserVo 클래스에 getId값을 가져온다?
 		UserVo user = userDao.getUser(inputUser.getId());
 	if(user == null)
 		return null;

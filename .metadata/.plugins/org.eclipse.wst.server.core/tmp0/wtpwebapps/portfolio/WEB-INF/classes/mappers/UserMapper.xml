@@ -12,4 +12,5 @@
   		user(id,pw,email,gender)
   		values(#{user.id},#{user.pw},#{user.email},#{user.gender})
   </insert>
+
 </mapper>

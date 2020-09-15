@@ -7,6 +7,7 @@ public class UserVo {
 	private String gender;
 	private String auth;
 	private String isDel;
+	
 	public String getId() {
 		return id;
 	}

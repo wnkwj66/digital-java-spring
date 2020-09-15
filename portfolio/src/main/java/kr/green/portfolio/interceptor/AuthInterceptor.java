@@ -6,7 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-//로그인 처리를 담당하는 인터셉터
+//로그인 처리를 담당하는 인터셉터(컨트롤러에 들어오는 요청 HttpRequest와 컨트롤러가 응답하는 HttpResponse를 가로채는 역할)
+//인터셉터는 관리자만 접근할 수 있는 관리자 페이지에 접근하기 전에 관리자 인증을 하는 용도로 활용될 수 있습니다.
+//HandlerInterceptorAdapter클래스를 상속받아 구현 하는 방법
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 	
 	// preHandle (): 컨트롤러보다 먼저 수행되는 메서드	

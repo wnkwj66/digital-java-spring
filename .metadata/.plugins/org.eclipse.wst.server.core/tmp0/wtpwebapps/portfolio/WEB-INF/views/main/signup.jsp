@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="<%= request.getContextPath() %>/resources/js/jquery.js"></script>    
 <form method="post" action="<%=request.getContextPath()%>/user/signup">
     <div class="page">
         <div class="noti-wrap">
@@ -121,6 +122,7 @@
 			            if(data['res']){
 				            str = 
 					        '<p style="color:green;">사용 가능한 아아디입니다.</p>'
+						        alert(id+'가 없가나 비밀번호가 잘못 되었습니다.')
 			            }else{
 			            	str = 
 					        '<p style="color:red;">이미 사용중이거나 탈퇴한 아이디입니다.</p>'
