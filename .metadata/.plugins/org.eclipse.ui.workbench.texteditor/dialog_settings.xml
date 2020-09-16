@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="display"/>
+		<item key="selection" value="img"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="true"/>
 		<item key="isRegEx" value="true"/>
 		<list key="findhistory">
+			<item value="img"/>
+			<item value="&lt;%@ taglib uri=&quot;http://java\.sun\.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;\R&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;\R    pageEncoding=&quot;UTF-8&quot;%&gt;\R\R&lt;h1 class=&quot;text-header&quot;&gt;\R\t로그인\R&lt;/h1&gt;\R\t&lt;form action=&quot;&lt;%=request\.getContextPath\(\)%&gt;/user/login&quot; method=&quot;POST&quot;&gt;\R\t\t&lt;div class=&quot;form-group&quot;&gt;\R\t\t\t&lt;input class=&quot;form-control&quot; type=&quot;text&quot; name=&quot;id&quot; placeholder=&quot;아이디&quot; &gt;\R\t\t&lt;/div&gt;\R\t\t&lt;div class=&quot;form-group&quot;&gt;\R\t\t\t&lt;input class=&quot;form-control&quot; type=&quot;password&quot; name=&quot;pw&quot; placeholder=&quot;비밀번호&quot;&gt;\R\t\t&lt;/div&gt;\R\t\t&lt;button class=&quot;btn btn-success col-12&quot; id=&quot;enter&quot;&gt;로그인&lt;/button&gt;\R\t\t&lt;div class=&quot;page&quot;&gt;\R            &lt;div class=&quot;noti-wrap&quot;&gt;\R                &lt;p&gt;회원 로그인&lt;/p&gt;\R            &lt;/div&gt;\R                &lt;div class=&quot;container-info&quot;&gt;\R                    &lt;div class=&quot;box-info&quot;&gt;\R                        &lt;div id=&quot;login&quot;&gt;\R                            &lt;div class=&quot;container&quot;&gt;\R                                &lt;div id=&quot;login-row&quot; class=&quot;row justify-content-center align-items-center&quot;&gt;\R                                    &lt;div id=&quot;login-column&quot; class=&quot;col-md-6&quot;&gt;\R                                        &lt;div id=&quot;login-box&quot; class=&quot;col-md-12&quot;&gt;\R                                                &lt;div class=&quot;form-group&quot;&gt;\R                                                    &lt;label for=&quot;username&quot; class=&quot;text-info&quot;&gt;아이디&lt;/label&gt;&lt;br&gt;\R                                                    &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;username&quot; class=&quot;form-control&quot;&gt;\R                                                &lt;/div&gt;\R                                                &lt;div class=&quot;form-group&quot;&gt;\R                                                    &lt;label for=&quot;password&quot; class=&quot;text-info&quot;&gt;비밀번호&lt;/label&gt;&lt;br&gt;\R                                                    &lt;input type=&quot;text&quot; name=&quot;password&quot; id=&quot;password&quot; class=&quot;form-control&quot;&gt;\R                                                &lt;/div&gt;\R                                                &lt;div class=&quot;form-group&quot;&gt;\R                                                    &lt;label for=&quot;remember-me&quot; class=&quot;text-info&quot;&gt;&lt;span&gt;Remember me&lt;/span&gt; &lt;span&gt;&lt;input id=&quot;remember-me&quot; name=&quot;remember-me&quot; type=&quot;checkbox&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;br&gt;\R                                                    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; class=&quot;btn btn-info btn-md&quot; value=&quot;로그인&quot;&gt;\R                                                &lt;/div&gt;\R                                                &lt;div id=&quot;register-link&quot; class=&quot;text-right&quot;&gt;\R                                                    &lt;a href=&quot;#&quot; class=&quot;text-info&quot;&gt;아이디 찾기&lt;/a&gt;\R                                                &lt;/div&gt;\R                                                &lt;div id=&quot;register-link&quot; class=&quot;text-right&quot;&gt;\R                                                    &lt;a href=&quot;#&quot; class=&quot;text-info&quot;&gt;비밀번호 찾기&lt;/a&gt;\R                                                &lt;/div&gt;\R                                            &lt;/form&gt;\R                                        &lt;/div&gt;\R                                    &lt;/div&gt;\R                                &lt;/div&gt;\R                            &lt;/div&gt;\R                        &lt;/div&gt;\R                    &lt;/div&gt;\R                &lt;/div&gt;\R       \R        &lt;/div&gt;\R\R\t&lt;c:if test=&quot;\$\{msg == &apos;failure&apos;\}&quot;&gt;\R\t\t&lt;div style=&quot;color:red&quot;&gt;\R\t\t\t로그인 실패\R\t\t&lt;/div&gt;\R\t\t&lt;script &gt;\R\t\talert\(&apos;로그인 실패&apos;\)\R\t\t&lt;/script&gt;\R\t&lt;/c:if&gt;\R"/>
+			<item value="url"/>
+			<item value="resource"/>
+			<item value="bus-ticketing"/>
+			<item value="side"/>
+			<item value="sidemenu"/>
 			<item value="display"/>
-			<item value="flex"/>
-			<item value="n"/>
-			<item value="nav"/>
-			<item value=".navbar"/>
-			<item value="depPlaceNm"/>
-			<item value="getTicketingData"/>
-			<item value="arrTermianlNm"/>
-			<item value="path"/>
-			<item value="link"/>
-			<item value="junit"/>
-			<item value="file"/>
-			<item value="form-group"/>
-			<item value="/test"/>
-			<item value="type"/>
 		</list>
 		<list key="replacehistory">
+			<item value="resource"/>
 			<item value="*"/>
 			<item value=""/>
 		</list>
