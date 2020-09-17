@@ -1,10 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script src="<%=request.getContextPath() %>/resources/js/Jquery.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/portfolio.js"></script>
 <div class="main-container">
-	<div class="ticketing-container">
-		<div class="tic-wrap">
+	<div class="tic-wrap ticketing-container">
+		<div class="tic-box" id="ticket-box">
 			<ul class="route-box">
 				<li class="one-way"><a href="#"> 편도</a></li>
 				<li class="round-trip"><a href="#">왕복</a></li>
@@ -13,7 +14,8 @@
 				<li class="start" data-target=".remodal-overlay,.remodal-wrapper">
 					<a href="#" id="readDeprInfoList"> <span>출발지</span>
 						<p class="text empty">
-							<span class="empty_txt">선택</span> <span class="val-txt"	id="deprNmSpn"></span>
+							<span class="empty_txt">선택</span> <span class="val-txt"
+								id="deprNmSpn"></span>
 						</p> <!-- 값 있을 경우 empty 클래스 없음 -->
 				</a>
 					<p class="button-change"></p>
@@ -21,7 +23,8 @@
 				<li class="arrival" data-target=".remodal-overlay,.remodal-wrapper">
 					<a href="#" id="readArvlInfoList"> <span>도착지</span>
 						<p class="text empty">
-							<span class="empty_txt">선택</span> <span class="val-txt"	id="arvlNmSpn"></span>
+							<span class="empty_txt">선택</span> <span class="val-txt"
+								id="arvlNmSpn"></span>
 						</p>
 				</a>
 				</li>
@@ -385,7 +388,7 @@
 			</div>
 		</div>
 
-		<div class="tic-wrap ticket-confirm" style="display: none;">
+		<div class="tic-box ticket-confirm">
 			<div id="login-column" class="col-md-6">
 				<div id="login-box" class="col-md-12">
 					<form id="login-form" class="form" action="" method="post">

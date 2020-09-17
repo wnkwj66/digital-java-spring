@@ -21,11 +21,10 @@
 				<div class="side-menu">
 					<h1>회원가입</h1>
 					<ul>
-					<!-- ajax로 처리 -->
-					<li><a href="#">고속버스 예매</a></li>
-					<li><a href="#">예매확인</a></li>
-					<li><a href="#">운행정보</a></li>
-				</ul>
+						<li><a href="#" aria-selected="true" data-target="#ticket-box">고속버스 예매</a></li>
+						<li><a href="#" data-target=".ticket-confirm">예매확인</a></li>
+						<li><a href="#">운행정보</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
