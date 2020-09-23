@@ -2,6 +2,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Malgun Gothic', '맑은고딕', sans-serif;
 }
 input[type=text], input[type=password] {
     background: #ffffff;
@@ -10,13 +11,16 @@ input[type=text], input[type=password] {
     padding: 3px 1px 2px 1px;
     color: #444;
     text-indent: 7px;
-    *text-indent: 0;
+    text-indent: 0;
     vertical-align: middle;
     border: 1px solid #ccc;
 }
 li{
     list-style: none;
     
+}
+label{
+    cursor: pointer;
 }
 a{
     color: black;
@@ -36,7 +40,6 @@ a:hover{
 }
 .top-menu{
     height: 23px;
-    border: 1px solid red;
 }
 .top-menu ul{
     float: right;
@@ -44,11 +47,38 @@ a:hover{
 .top-menu ul li{
     float: left;
     padding: 0 10px;
+    position: relative;
+}
+.top-menu > ul li a{
+    font-size: 12px;
+}
+.top-menu > ul li a::after{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    width: 1px;
+    height: 10px;
+    border-left: 1px solid black;
+    opacity: 0.4;
 }
 .side-menu{
-    height: 80px;
-    border: 1px solid red;
+    height: 95px;
     line-height: 78px;
+}
+.side-menu h1{
+    height: 60px;
+    padding: 75px 0 0 40px;
+}
+.side-menu .logo{
+    background: url(../css/img/logo_pc.png) center 0 no-repeat;
+    background-size: 70px;
+    font-size: 13px;
+    width: 100px;
+    padding-top: 70px;
+    font-weight: bold;
+    text-align: center;
 }
 .side-menu ul{
     float: right;
@@ -56,7 +86,10 @@ a:hover{
 .side-menu>ul>li{
     text-align: center;
     float: left;
+    font-size: 17px;
+    height: 100%;
     width: 170px;
+    line-height: 90px;
 }
 .side-menu ul li:hover{
     cursor: pointer;
@@ -66,41 +99,130 @@ a:hover{
     height: 700px;
     border: 1px solid green;
     position: relative;    
-    background-image: url(./img/BG_bus.jpg);
+    background-image: url(../css/img/Korea_Seoul_city_scenery_Photography_Wallpaper_06_1366x768.jpg);
 }
 .ticketing-container{
     width: 450px;
-    border: 1px solid blue;
-    background-color: #f3f4f6;
+    /* border: 1px solid blue; */
+    background-color: rgba(0, 0, 0, 0.5);
     height: 100%;
     position: absolute;
     right: 420px;
     top: 0;
-    box-sizing: border-box;
+    box-sizing: content-box;
     text-align: center;
 }
 .tic-box{
     /* height: calc(100% - 10%); */
+    margin-top:40px;
     padding: 50px 0;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
 }
 .route-box{
     margin: 0 auto;
-    width: calc(100% - 10px);
-    height: 25px;
+    height: 35px;
+    width: 449px;
+    font-size: 18px;
     text-align: center;
     box-sizing: border-box;
-    border: 1px solid black;
+    background-color: #FFF;
     border-radius: 5px;
+    line-height: 35px;
+    display: flex;
+    overflow: hidden;
+}
+.route-box li:hover{
+    cursor: pointer;
 }
 .route-box li:first-child{
     float: left;
-    width: calc((100% / 2) - 2px);
-    border-right:1px solid black;
+    height: 100%;
+    width: 100%;
+    border-right:1px solid #e6e6e6;
+}
+.route-box .one-way{
+    background-color: #e6e6e6;
+}
+.route-box .one-way.active{
+    background-color: #fff;
+}
+.route-box .one-way.active a{
+    color: #68b3ce;
+}
+.route-box .one-way.active a::before{
+    display: inline-block;
+    content: '';
+    background: url(../css/img/ico_oneway_on.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 19px;
+    height: 12px;
+    margin-right: 5px;
+}
+.route-box .one-way.active a::after{
+    display: inline-block;
+    content: '';
+    background: url(../css/img/ico_tab_s_on.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 11px;
+    height: 12px;
+    margin-left: 6px;
+}
+.route-box .one-way a{
+    color: #999;
+}
+.route-box .one-way a::before{
+    display: inline-block;
+    content: '';
+    background: url(../css/img/ico_oneway.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 19px;
+    height: 12px;
+    margin-right: 5px;
+}
+.route-box .round-trip{
+    width: 100%;
+    float: right;
+    background-color: #e6e6e6;
+}
+.route-box .round-trip a{
+    color: #999;
+}
+.route-box .round-trip a::before{
+    display: inline-block;
+    content: '';
+    background: url(../css/img/ico_roundtrip.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 19px;
+    height: 19px;
+    margin:0 9px -4px 0;
+}
+.route-box .round-trip.active{
+    background-color: #fff;
+}
+.route-box .round-trip.active a{
+    color: #68b3ce;
+}
+.route-box .round-trip.active a::before{
+    display: inline-block;
+    content: '';
+    background: url(../css/img/ico_roundtrip_on.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 19px;
+    height: 19px;
+    margin:0 9px -4px 0;
+}
+.route-box .round-trip.active a::after{
+    display: inline-block;
+    content: '';
+    background: url(../css/img/ico_tab_s_on.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 11px;
+    height: 12px;
+    margin-left: 6px;
 }
 .tic-wrap .place-box{
     margin: 20px auto;
-    width: calc(100% - 10px);
+    width: 100%;
     height: 100px;
 }
 .place-box > li{
@@ -109,22 +231,34 @@ a:hover{
     border-radius: 5px;
     float: right;
     height: 100%;
-    width: calc(50% - 4px);
-    border: 1px solid black;				
+    width: calc(50% - 4px);		
+    background-color: #f3f4f6;		
 }
 .place-box > li:first-child{
     float: left;
 }
+.place-box .name{
+    display: block;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+    float: left;
+}
 .place-box .text{
     height: 60px;
-    line-height:  58px;
+    text-align: center;
+    float: left;
+    color: #b3b3b3;
+    font-size: 23px;
+    line-height: 48px;
+    padding: 0 45px 0 12px;
 }
 .button-change{
     width: 35px;
     height: 35px;
     position: absolute;
-    background-color: blue;
+    background:url(../css/img/arrow_toggle_s.png) 0 5px no-repeat;;
     right: -21px;
+    z-index: 50;
     top: 35px;
 }
 .place-box > li,
@@ -135,28 +269,129 @@ a:hover{
 .date-box >li{
     margin:0 auto;
     position: relative;
-    width: 420px;
     height: 100px;
-    border: 1px solid black;
+    background: #f3f4f6;
     border-radius: 5px;
 }
+.date-box .name{
+    position: relative;
+    right:177px;
+    padding-left: 10px;
+    font-size: 17px;
+}
+.date-box .name .text{
+    height: 60px;
+    padding: 5px 0 0;
+    font-size: 19px;
+    color: #000;
+    line-height: 1.3;
+}
 .grade-box > li{
-    border: 1px solid black;
     margin: 0 auto;
-    width: 420px;
-    height: 70px;
+    background: #f3f4f6;
+    height: 100px;
     border-radius: 5px;
+}
+.grade-box .grade{
+    height: 90px;
+}
+.grade-box .grade .name{
+    position: relative;
+    right: 180px;
+}
+[class^='custom_radio']{
+    display: inline-block;
+    position: relative;
+    line-height: 1;
+    z-index: 100;
+}
+[class^='custom_radio'] input {
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+[class^='custom_radio'] label {
+    padding-right: 20px;
+    color: #bfbfbf;
+}
+.grade-box p{
+    margin-top: 10px;
+    font-size: 16px;
+}
+.gradeAll input:checked + label {
+    background: url(../css/img/ico_grade_s_on.png) right 4px no-repeat;
+    background-size: 15px;
+    color: #000;
+}
+.grade-box .grade label:hover{
+    color: #000;
+}
+.grade-box .grade2 label {
+    background: url(../css/img/ico_grade2_s.png) right 0 no-repeat;
+    background-size: 23px;
+    font-size: 25px;
+    padding-right: 25px;
+    height: 30px;
+}
+
+.grade-box .grade2 input + label:hover, .grade-box .grade2 input:checked + label {
+    background: url(../css/img/ico_grade2_s_on.png) right 0 no-repeat;
+    background-size: 23px;
+    color: #000;
+}
+.grade-box .grade3 label {
+    background: url(../css/img/ico_grade3_s.png) right 0 no-repeat;
+    font-size: 25px;
+    padding-right: 25px;
+    height: 30px;
+    background-size: 23px;
+}
+.grade-box .grade3 input + label:hover, .grade-box .grade3 input:checked + label {
+    background: url(../css/img/ico_grade3_s_on.png) right 0 no-repeat;
+    background-size: 23px;
+    color: #000;
+}
+.grade-box .grade .custom_radio input:checked + label:after {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: -23px;
+    background: url(../css/img/ico_grade_s_on.png) 0 0 no-repeat;
+    background-size: 15px;
+    width: 20px;
+    height: 20px;
+}
+.grade-box .grade .gradeAll input:checked + label:after {
+    display: none;
 }
 .complete{
     margin: 10px auto;
-    width: calc(100% - 10px);
-    height: 70px;
-    border-radius: 5px;
+    margin-top: 30px;
+    overflow: hidden;
+    height: 80px;
+    font-size: 20px;
+    border-radius: 10px;
 
 }
 .btn-complete{
     width: 100%;
     height: 100%;
+    color: #fff;
+    font-weight: bold;
+    background: #b8becc;
+    border: none;
+    cursor: pointer;
+}
+.btn-complete:hover{
+    background: #a1abc2;
+}
+.btn-complete:focus{
+    outline: none;
 }
 #login-column{
     margin:0 auto;
@@ -193,7 +428,6 @@ input:focus{
     padding: 7px 12px;
     margin-top: 10px;
     background-color: #f3f4f6;
-    box-sizing: content-box;
 }
 .box-inputForm strong{
     display: block;
@@ -246,13 +480,11 @@ input:focus{
 }
 .box-info #year,#month,#day{
     width:calc((100% - 84px)/3);
-	box-sizing: content-box !important;
-	display: inline-block;
+    display: inline-block;
 }
 #month{
     width: 139px;
     border: none;
-     box-sizing: content-box;
     background-color:#f3f4f6;
 }
 .box-info #phone{
@@ -372,11 +604,14 @@ input:focus{
 }
 .remodal-close:before {
     content: '';
-    background: url(./img/close_mobile.png) center center no-repeat;
+    background: url(../css/img/close_mobile.png) center center no-repeat;
     background-size: 16px;
     width: 16px;
     height: 16px;
     padding: 15px;
+}
+.remodal-close:focus{
+    outline: none;
 }
 .pop_place .cont {
     padding: 30px 30px 0;
@@ -458,7 +693,7 @@ input:focus{
     position: absolute;
     top: 28px;
     left: 50%;
-    background: #FFF url(./img/ico_arrow.png) center center no-repeat;
+    background: #FFF url(../css/img/ico_arrow.png) center center no-repeat;
     background-size: 14px 9px;
     width: 30px;
     height: 30px;
@@ -696,3 +931,28 @@ input:focus{
     display: none !important; 
 }
 .pop_place .terminal_list li:hover span { color: #68b3ce; cursor: pointer;}
+
+.ui-datepicker-trigger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 60%;
+    width: 40px;
+    height: 35px;
+    margin-top: -13px;
+    font-size: 0;
+    cursor: pointer;
+}
+.text .hasDatepicker{
+    display: block;
+    width: 230px;
+    height: 50px;
+    padding-left: 10px;
+    font-size: 30px;
+    color: #000;
+    background-color: transparent;
+    border: none;
+}
+.hasDatepicker:focus{
+    outline: none;
+}

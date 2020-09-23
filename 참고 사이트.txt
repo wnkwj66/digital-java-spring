@@ -1,0 +1,38 @@
+spring 휴대폰 인증 시스템
+ : https://sinna94.tistory.com/34
+
+css 코드 알려주는 사이트
+ : http://www.happycgi.com/16392#1
+
+html 코드 알려주는 사이트
+ : http://www.tcpschool.com/html-tags/p
+
+spring-framework 알려주는 사이트
+ : https://all-record.tistory.com/175
+  https://goddaehee.tistory.com/
+  https://ande226.tistory.com/101
+
+컨트롤러 메서드? 기능 알려주는 사이트 (기본)
+ :https://gangzzang.tistory.com/entry/%EC%8A%A4%ED%94%84%EB%A7%81Spring-MVC-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%ACModel-View-Controller-Framework-1
+
+스프링 공부하면서 참고사이트 안내
+ : https://taesan94.tistory.com/109
+
+로그인 기능
+ : https://beam307.github.io/2017/11/29/login/
+  https://gangnam-americano.tistory.com/11 
+ https://developer-jjun.tistory.com/16
+
+스프링 버스예매 깃
+ :https://github.com/dnjscksdn98/bus-reservation-application
+
+공공 API 활용 
+ ://m.blog.naver.com/PostView.nhn?blogId=dajung674&logNo=221406467884&categoryNo=21&proxyReferer=https:%2F%2Fwww.google.com%2F
+ https://mytalkhome.tistory.com/855 (HttpURLConnection 참고)
+ https://goddaehee.tistory.com/161(HttpURLConnection 참고)
+
+datepicker
+ http://www.nextree.co.kr/p9887/
+
+https://loy124.tistory.com/193
+https://blog.naver.com/PostView.nhn?blogId=vnemftnsska2&logNo=221407281877&redirect=Dlog&widgetTypeCall=true&directAccess=false

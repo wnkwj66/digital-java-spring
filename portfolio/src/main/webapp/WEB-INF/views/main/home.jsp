@@ -1,29 +1,47 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script src="<%=request.getContextPath() %>/resources/js/Jquery.js"></script>
-<script src="<%=request.getContextPath() %>/resources/js/portfolio.js"></script>
+<div class="header">
+	<div class="wrap">
+		<div class="box-menu">
+			<div class="side-menu">
+				<h1>
+					<a class="logo"
+						href="http://127.0.0.1:5500/bus-ticketing/html/bus-ticketing.html">
+						버스예매포트폴리오 </a>
+
+				</h1>
+				<ul>
+					<li><a href="#" aria-selected="true" data-target="#ticket-box">고속버스
+							예매</a></li>
+					<li><a href="#" data-target=".ticket-confirm">예매확인</a></li>
+					<li><a href="#">운행정보</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="main-container">
 	<div class="tic-wrap ticketing-container">
 		<div class="tic-box" id="ticket-box">
 			<ul class="route-box">
-				<li class="one-way"><a href="#"> 편도</a></li>
+				<li class="one-way active"><a href="#"> 편도</a></li>
 				<li class="round-trip"><a href="#">왕복</a></li>
 			</ul>
 			<ul class="place-box">
 				<li class="start" data-target=".remodal-overlay,.remodal-wrapper">
-					<a href="#" id="readDeprInfoList"> <span>출발지</span>
+					<a href="#" id="readDeprInfoList"> <span class="name">출발지</span>
 						<p class="text empty">
-							<span class="empty_txt">선택</span> <span class="val-txt"
+							<span class="empty_txt">출발지 선택</span> <span class="val-txt"
 								id="deprNmSpn"></span>
 						</p> <!-- 값 있을 경우 empty 클래스 없음 -->
 				</a>
 					<p class="button-change"></p>
 				</li>
 				<li class="arrival" data-target=".remodal-overlay,.remodal-wrapper">
-					<a href="#" id="readArvlInfoList"> <span>도착지</span>
+					<a href="#" id="readArvlInfoList"> <span class="name">도착지</span>
 						<p class="text empty">
-							<span class="empty_txt">선택</span> <span class="val-txt"
+							<span class="empty_txt">도착지 선택</span> <span class="val-txt"
 								id="arvlNmSpn"></span>
 						</p>
 				</a>
@@ -32,20 +50,35 @@
 			<ul class="date-box">
 				<li>
 					<div class="date">
-						가는날
+						<span class="name">가는날</span>
 						<p class="text">
-							<span>현재 날짜</span>
+							<input type="text" id="calender">
 						</p>
 					</div>
 				</li>
 			</ul>
 			<ul class="grade-box">
 				<li>
-					<div class="grade">등급</div> 전체 프리미엄 우등 고속
+					<div class="grade">
+						<span class="name">등급</span>
+						<p>
+							<span class="custom_radio gradeAll"	style="margin-left: 19px; font-size: 25px; position: relative; right: 72px;">
+								<input type="radio" id="busClsCd0" name="busClsCdR"
+								onclick="fnBusClsCd(this)" value="0" /> <label for="busClsCd0">전체</label>
+							</span> <span class="custom_radio grade2" style="margin-left: 19px;">
+								<input type="radio" id="busClsCd1" name="busClsCdR"
+								onclick="fnBusClsCd(this)" value="1" /> <label for="busClsCd1">우등</label>
+							</span> <span class="custom_radio grade3" style="margin-left: 19px;">
+								<input type="radio" id="busClsCd5" name="busClsCdR"
+								onclick="fnBusClsCd(this)" value="2" /> <label for="busClsCd5">일반</label>
+							</span>
+						</p>
+					</div>
+
 				</li>
 			</ul>
 			<div class="complete">
-				<button class="btn-complete">조회하기</button>
+				<button type="button" class="btn-complete">조회하기</button>
 			</div>
 		</div>
 		<div class="remodal-overlay remodal-is-opened" style="display: none"></div>
