@@ -1,5 +1,9 @@
 package kr.green.portfolio.vo;
 
+/**
+ * @author Administrator
+ *
+ */
 public class UserVo {
 	private String id;
 	private String pw;
@@ -7,7 +11,8 @@ public class UserVo {
 	private String gender;
 	private String auth;
 	private String isDel;
-	
+	private int phone;
+	private int age;
 	public String getId() {
 		return id;
 	}
@@ -44,10 +49,22 @@ public class UserVo {
 	public void setIsDel(String isDel) {
 		this.isDel = isDel;
 	}
+	public int getPhone() {
+		return phone;
+	}
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
 	@Override
 	public String toString() {
 		return "UserVo [id=" + id + ", pw=" + pw + ", email=" + email + ", gender=" + gender + ", auth=" + auth
-				+ ", isDel=" + isDel + "]";
+				+ ", isDel=" + isDel + ", phone=" + phone + ", age=" + age + "]";
 	}
 	
 	
