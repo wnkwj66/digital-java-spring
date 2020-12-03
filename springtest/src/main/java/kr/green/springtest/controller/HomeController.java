@@ -1,6 +1,7 @@
 package kr.green.springtest.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.springtest.service.UserService;
+import kr.green.springtest.utils.ApiExplorer;
+import kr.green.springtest.utils.MyUtils;
+import kr.green.springtest.vo.BusVo;
 import kr.green.springtest.vo.UserVo;
 
 @Controller
@@ -67,5 +71,35 @@ public class HomeController {
 	    Map<Object, Object> map = new HashMap<Object, Object>();
 	    map.put("res",userService.getUser(id)==null);
 	    return map;
+	}
+	// AIP
+	@RequestMapping("/busForm") // busForm.jsp 의 요청을 받아서 실행
+	public ModelAndView busForm(ModelAndView mv) {
+		mv.setViewName("/bus/busForm");
+		return mv;
+	}
+	
+	@RequestMapping(value="/bus",method = RequestMethod.POST)
+	public ModelAndView bus(BusVo busVo, ModelAndView mv) throws Exception{
+		
+		Map<String , String> result = MyUtils.getTerminalId();
+
+		String depPlaceNm = result.get(busVo.getDepPlaceNm());
+		System.out.println("depPlaceNm:"+ depPlaceNm);
+		String arrPlaceNm = result.get(busVo.getArrPlaceNm());
+		System.out.println("arrPlaceNm:"+ arrPlaceNm);
+		String depPlandTime =busVo.getDepPlandTime();
+		System.out.println("출발일: "+ depPlandTime);
+		String arrPlandTime =busVo.getArrPlandTime();
+		
+		List<BusVo> go = ApiExplorer.getBusJson(depPlaceNm, arrPlaceNm, depPlandTime);
+		System.out.println("suc");
+		System.out.println("go: "+go);
+		List<BusVo> back = ApiExplorer.getBusJson(depPlaceNm, arrPlaceNm, arrPlandTime);
+		mv.addObject("go",go);
+		mv.addObject("back",back);
+		mv.setViewName("/bus/bus");
+		
+		return mv;
 	}
 }

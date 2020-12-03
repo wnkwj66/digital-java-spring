@@ -1,4 +1,3 @@
-https://all-record.tistory.com/165//https://hongku.tistory.com/116
 
 1.Controller에 원하는 (/board/detail) URI를 처리하는 메소드를 생성
 2. 해당 메소드가 GET이고 , 화면을 보여주는 경우,jsp를 생성

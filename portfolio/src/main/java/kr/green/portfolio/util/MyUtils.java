@@ -10,6 +10,7 @@ public class MyUtils {
 		Map<String, String> result = new HashMap<String, String>();
 		
 		result.put("센트럴시티(서울)","NAEK020");
+		result.put("서울경부","NAEK010");
 		result.put("청주(센트럴)","NAEK401");
 		result.put("센트럴","NAEK020");
 		result.put("대구공항","NAEK861");

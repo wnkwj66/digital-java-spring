@@ -9,11 +9,9 @@
 					<a class="logo"
 						href="http://127.0.0.1:5500/bus-ticketing/html/bus-ticketing.html">
 						버스예매포트폴리오 </a>
-
 				</h1>
 				<ul>
-					<li><a href="#" aria-selected="true" data-target="#ticket-box">고속버스
-							예매</a></li>
+					<li><a href="#" aria-selected="true" data-target="#ticket-box">고속버스예매</a></li>
 					<li><a href="#" data-target=".ticket-confirm">예매확인</a></li>
 					<li><a href="#">운행정보</a></li>
 				</ul>

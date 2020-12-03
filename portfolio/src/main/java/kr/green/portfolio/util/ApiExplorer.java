@@ -74,7 +74,6 @@ public class ApiExplorer {
     	JSONObject jsonObj = (JSONObject) parser.parse(result); //리턴값이 오브젝트이기 때문에 json오브젝트로 다운캐스팅
 
     	//response : 응답
-    	//
     	JSONObject j_response = (JSONObject) jsonObj.get("response"); //jsonObj.get("key")값이기 때문에 response객체 가져옴(결과값).
 //    	그러니까 위에 샘플 코드 결과값을 가지고 응답하는 과정
     	System.out.println("response:"+j_response );

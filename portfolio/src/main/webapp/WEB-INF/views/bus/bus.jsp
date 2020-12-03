@@ -10,6 +10,7 @@
 <body>
 	<h1>가는날</h1>
 	<c:forEach var ="item" items="${go}"> 
+		
 		버스사 : ${item.buslineNm }<br>
 		출발지 : ${item.depPlaceNm }<br>
 		출발시간 : ${item.depPlandTime }<br>

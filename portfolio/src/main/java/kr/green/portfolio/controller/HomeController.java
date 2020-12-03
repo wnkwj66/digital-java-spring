@@ -23,6 +23,7 @@ import kr.green.portfolio.service.UserService;
 import kr.green.portfolio.util.ApiExplorer;
 import kr.green.portfolio.util.MyUtils;
 import kr.green.portfolio.vo.BusVo;
+import kr.green.portfolio.vo.TerminalVo;
 import kr.green.portfolio.vo.UserVo;
 
 @Controller
@@ -113,11 +114,13 @@ public class HomeController {
 	public ModelAndView bus(BusVo busVo, ModelAndView mv) throws Exception{
 		
 		Map<String , String> result = MyUtils.getTerminalId();
-//		Iterator<String> it = result.keySet().iterator();
+	//		Iterator<String> it = result.keySet().iterator();
 //		while(it.hasNext()) {
 //			String tmp = it.next();
 //			System.out.println(tmp+":"+result.get(tmp));
 //		}
+		System.out.println("3333333333333333333333333333333333");
+		
 		String depTerminalNm = result.get(busVo.getDepTerminalNm());
 		System.out.println("depTerminalNm:"+ depTerminalNm);
 		String arrTerminalNm = result.get(busVo.getArrTerminalNm());
@@ -127,7 +130,7 @@ public class HomeController {
 		
 		List<BusVo> go = ApiExplorer.getBusJson(depTerminalNm, arrTerminalNm, depPlandTime);
 		System.out.println("go: "+ go);
-		List<BusVo> back = ApiExplorer.getBusJson(depTerminalNm, arrTerminalNm, depPlandTime);
+		List<BusVo> back = ApiExplorer.getBusJson(depTerminalNm, arrTerminalNm, arrPlandTime);
 		
 		mv.addObject("go",go);
 		mv.addObject("back",back);
