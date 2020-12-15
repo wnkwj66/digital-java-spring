@@ -5,10 +5,14 @@ public class Criteria {
 	private int page; 
 	//한 페이지 당 컨텐츠 갯수
 	private int perPageNum;
+	private String search;
+	private int type;
 	//Criteria 디폴트 생성자 : 현재 페이지를 1페이지로, 한 페이지에 10개의 컨텐츠
 	public Criteria() {
-		this.page = 1; 
-		this.perPageNum = 10;
+		page = 1;
+		this.perPageNum = 1;			perPageNum = 3;
+		search="";
+		type=0;
 	}
 	//getter and setter
 	public int getPage() {
@@ -34,9 +38,24 @@ public class Criteria {
 		else
 			this.perPageNum = perPageNum;
 	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		if(type <0 || type > 3) 
+			this.type = 0;
+		else
+			this.type = type;
+	}
 	@Override
 	public String toString() {
-		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + "]";
+		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", search=" + search + ", type=" + type + "]";
 	}
 	/* 쿼리문에서 limit에 사용되는 인덱스를 계산하는 getter */
 	/*	쿼리문에서 limit를 사용할 때 가져올 컨텐츠의 시작 위치를

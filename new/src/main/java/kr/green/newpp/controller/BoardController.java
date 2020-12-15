@@ -36,7 +36,7 @@ public class BoardController {
 	}
 	//게시판 상세
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv,Integer num) {
+	public ModelAndView boardDetailGet(ModelAndView mv,Integer num,Criteria cri) {
 		logger.info("URI:/board/detail");
 		mv.setViewName("/board/detail");
 		BoardVo board = null;
@@ -49,6 +49,7 @@ public class BoardController {
 				board.setViews(board.getViews()+1);
 			}
 		}
+		mv.addObject("cri",cri);
 		return mv;
 	}
 	//게시판 등록

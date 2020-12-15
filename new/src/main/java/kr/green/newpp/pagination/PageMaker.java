@@ -10,7 +10,7 @@ public class PageMaker {
 	//	다음 블록으로 가는 이전 버튼과 다음 버튼의 유무
 	private boolean prev, next;
 	//	한 블록에 보여진 페이지의 갯수
-	private int displayPageNum=3;
+	private int displayPageNum =3;
 
 	//	현재페이지 정보와 전체 컨텐츠의 수가 주어지면 멤버 변수의 값을 계산하는
 	//	메소드로 전체 컨텐츠의 수가 설정되면 호출하면 됨
