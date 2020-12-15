@@ -83,4 +83,5 @@
 	<select id="isLike" resultType="int">
 		select count(*) from spring.like where id =#{id} and boNum=#{boNum}
 	</select>
+	
 </mapper>
