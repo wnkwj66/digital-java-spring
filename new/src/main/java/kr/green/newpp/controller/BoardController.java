@@ -19,7 +19,7 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private BoardService boardService;
-	
+	//게시판
 	@RequestMapping(value="/board/list", method = RequestMethod.GET)
 	public ModelAndView boardListGet(ModelAndView mv) {
 	    logger.info("URI:/board/list");
@@ -29,6 +29,7 @@ public class BoardController {
 	    mv.addObject("list", list);
 	    return mv;
 	}
+	//게시판 상세
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
 	public ModelAndView boardDetailGet(ModelAndView mv,Integer num) {
 		logger.info("URI:/board/detail");
@@ -45,6 +46,7 @@ public class BoardController {
 		}
 		return mv;
 	}
+	//게시판 등록
 	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
 	public ModelAndView boardregisterGet(ModelAndView mv) {
 		logger.info("URI:/board/register:GET");
@@ -59,4 +61,34 @@ public class BoardController {
 		boardService.registerBoard(board);
 		return mv;
 	}
+	//게시글 수정
+	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
+	public ModelAndView boardModifyGet(ModelAndView mv,Integer num) {
+		logger.info("URI:/board/modify:GET");
+		mv.setViewName("/board/modify");
+		System.out.println(num);
+		BoardVo board=null;
+		if(num != null) {
+			board = boardService.getBoard(num);
+		}
+		mv.addObject("board",board);
+		return mv;
+	}
+	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
+	public ModelAndView boardModifyPost(ModelAndView mv,BoardVo board) {
+		logger.info("URI:/board/modify:Post");
+		mv.setViewName("redirect:/board/list");
+		boardService.updateBoard(board);
+		return mv;
+	}
+	//게시글 삭제
+	@RequestMapping(value = "/board/delete", method = RequestMethod.GET)
+	public ModelAndView boardModifyPost(ModelAndView mv,Integer num) {
+		logger.info("URI:/board/delete:Get");
+		mv.setViewName("redirect:/board/list");
+		boardService.deleteBoard(num);
+
+		return mv;
+	}
+	
 }
