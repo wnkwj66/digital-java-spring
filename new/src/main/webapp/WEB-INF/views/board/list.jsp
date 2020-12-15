@@ -62,7 +62,6 @@
 <form action="<%=request.getContextPath()%>/board/list">
 <div class="input-group mb-3">
 	<select class="form-control" id="sel1" name="type">
-
 		<option value="0" <c:if test="${pm.criteria.type == 0}">selected</c:if>>전체</option>
 		<option value="1" <c:if test="${pm.criteria.type == 1}">selected</c:if>>작성자</option>
 		<option value="2" <c:if test="${pm.criteria.type == 2}">selected</c:if>>제목</option>
