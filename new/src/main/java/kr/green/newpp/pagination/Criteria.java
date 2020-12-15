@@ -28,7 +28,7 @@ public class Criteria {
 	public void setPerPageNum(int perPageNum) {
 		/* 한 페이지에 컨텐츠 수를 0이상 100이하로 설정
 		개발자 설정에 따라 100부분을 수정할 수 있음 */
-		if(perPageNum <=0 || perPageNum > 11) {
+		if(perPageNum <1) {
 			this.perPageNum = 10;
 		}
 		else

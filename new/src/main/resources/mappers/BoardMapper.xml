@@ -4,14 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.green.newpp.dao.BoardDao">
   <select id="getBoardList" resultType="kr.green.newpp.vo.BoardVo">
-    select * from board where isDel = 'N'
+    select * from board 
+    where isDel = 'N'
+    order by num desc
+    limit #{cri.pageStart},#{cri.perPageNum}
   </select>
   <select id="getBoard" resultType="kr.green.newpp.vo.BoardVo">
     select * from board where num = #{num}
   </select>
   <update id="increaseViews">
   	update board
-  		set views = views+1 where num =#{num}
+  		set 
+  			views = views+1
+  		where 
+  			num =#{num}
   </update>
   <insert id="registerBoard">
   	insert into 
@@ -28,4 +34,9 @@
   		where
   			num = #{board.num}
   </update>
+  <select id="getTotalCount" resultType="int">
+    select count(*)
+    	from board
+    	where isDel = 'N'
+  </select>
 </mapper> 

@@ -2,11 +2,13 @@ package kr.green.newpp.service;
 
 import java.util.ArrayList;
 
+import kr.green.newpp.pagination.Criteria;
+import kr.green.newpp.pagination.PageMaker;
 import kr.green.newpp.vo.BoardVo;
 
 public interface BoardService {
 
-	ArrayList<BoardVo> getBoardList();
+	ArrayList<BoardVo> getBoardList(Criteria cri);
 
 	BoardVo getBoard(Integer num);
 
@@ -17,5 +19,7 @@ public interface BoardService {
 	void updateBoard(BoardVo board);
 
 	void deleteBoard(Integer num);
+
+	PageMaker getPageMaker(Criteria cri);
 
 }
