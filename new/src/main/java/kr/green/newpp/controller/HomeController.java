@@ -1,5 +1,9 @@
 package kr.green.newpp.controller;
 
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,8 @@ import kr.green.newpp.vo.UserVo;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	 @Autowired
+	 UserService userService;
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mv) {
@@ -22,15 +28,25 @@ public class HomeController {
 		mv.setViewName("/main/home");
 	    mv.addObject("setHeader", "타일즈");
 	    return mv;
-	
 	}
-	 @Autowired
-	 UserService userService;
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public ModelAndView homePost(ModelAndView mv,UserVo user) {
+		logger.info("URI:/");
+		UserVo dbUser = userService.isSignin(user); 
+		if(dbUser != null) {
+			mv.setViewName("redirect:/board/list");
+			mv.addObject("user",dbUser);
+		}
+		else
+			mv.setViewName("redirect:/");
+		return mv;
+	}
 // 회원가입  
 	 @RequestMapping(value="/signup",method = RequestMethod.GET)
-	 public ModelAndView signupGet(ModelAndView mv){
+	 public ModelAndView signupGet(ModelAndView mv,UserVo user){
 		 logger.info("URI:/signup:GET");
 		 mv.setViewName("/main/signup");
+		 System.out.println(user);
 	     return mv;
 	 }
 	 @RequestMapping(value="/signup",method = RequestMethod.POST)
@@ -40,9 +56,19 @@ public class HomeController {
 			 mv.setViewName("redirect:/");
 		 }else {
 			 mv.setViewName("redirect:/signup");
-			 mv.addObject("user", user);
+			 mv.addObject("id",user.getId());
+			 mv.addObject("pw",user.getPw());
+			 HashMap<String,Object> map = new HashMap<String, Object>();
+			 map.put("user", user);
+			 mv.addAllObjects(map);
 		 }
 	     return mv;
 	 }
-
+	 @RequestMapping(value = "/signout", method = RequestMethod.GET)
+		public ModelAndView signoutGet(ModelAndView mv,HttpServletRequest request) {
+			logger.info("URI:/signout:GET");
+			mv.setViewName("redirect:/");
+			request.getSession().removeAttribute("user");
+			return mv;
+		}
 }

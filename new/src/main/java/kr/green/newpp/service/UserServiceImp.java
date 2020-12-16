@@ -1,5 +1,7 @@
 package kr.green.newpp.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,19 @@ public class UserServiceImp implements UserService{
 		userdao.insertUser(user);
 
 		return true;
+	}
+
+	@Override
+	public UserVo isSignin(UserVo user) {
+		UserVo dbUser = userdao.getUser(user.getId());
+		if(dbUser != null && passwordEncoder.matches(user.getPw(), dbUser.getPw()))
+			return dbUser;
+		return null;
+	}
+
+	@Override
+	public UserVo getUser(HttpServletRequest request) {
+		return (UserVo)request.getSession().getAttribute("user");
 	}
 
 }
