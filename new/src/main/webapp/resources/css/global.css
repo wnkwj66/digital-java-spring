@@ -142,3 +142,14 @@
     line-height: 30px;
     cursor: pointer;
 }
+.dup-fail-msg,
+.dup-suc-msg{
+	color: red;
+	line-height: 16px;
+	margin-bottom: 10px;
+}
+.dup-suc-msg{
+	color: rgb(0, 200, 80);
+}
+.display-none{
+	display: none;

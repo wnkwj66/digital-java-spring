@@ -55,5 +55,10 @@ public class UserServiceImp implements UserService{
 	public UserVo getUser(HttpServletRequest request) {
 		return (UserVo)request.getSession().getAttribute("user");
 	}
+	//idcheck
+	@Override
+	public UserVo getUser(String id) {
+		return userdao.getUser(id);
+	}
 
 }

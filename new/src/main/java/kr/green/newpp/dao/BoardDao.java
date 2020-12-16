@@ -20,4 +20,6 @@ public interface BoardDao {
 	void updateBoard(@Param("board")BoardVo board);
 
 	int getTotalCount(@Param("cri")Criteria cri);
+
+	void insertLike(@Param("boNum")int boNum, @Param("id")String id);
 }
