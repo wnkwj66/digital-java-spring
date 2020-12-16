@@ -6,3 +6,139 @@
 .page-link>i{
 	line-height: 20px;
 }
+.container-info{
+    border: 1px solid #e6e6e6;
+}
+.container-info .box-info{
+    margin: 30px auto;
+    width: 500px;
+    position: relative;     
+}
+.container-info.join-wrap span{
+    display: block;
+    padding-right: 150px;
+    color: #000;
+    font-size: 14px;
+}
+.container-info.join-wrap p {
+    position: relative;
+    background: #f3f4f6;
+    padding: 25px 10px;
+    margin: 0;
+}
+.container-info.join-wrap a:before {
+    display: inline-block;
+    content: '';
+    background: url(../css/img/ico_joinUs_s.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 24px;
+    margin: 0 8px -6px 0;
+}
+.container-info.join-wrap a {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -25px;
+    padding-left: 20px;
+    color: #a1a6b2;
+    font-size: 14px;
+    line-height: 50px;
+    border-left: 1px solid #e7e8ec;
+}
+.box-inputForm{
+    position: relative;
+    padding: 7px 12px;
+    margin-top: 10px;
+    background-color: #f3f4f6;
+}
+.box-inputForm strong{
+    display: block;
+    font-size: 12px;
+}
+.box-label{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 28px;
+}
+.box-label input{
+    width: 100%;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #000;
+}
+.box-inputForm .radio-wrap{
+    margin: 6px 0px;
+}
+.custom-radio{
+    display: inline-block;
+    position: relative;
+    width: calc(50% - 10px);
+}
+.btns{
+    margin-top: 30px;
+    text-align: center;
+}
+.btn-ready{
+    background-color: #b8becc;
+    color: white;
+}
+.btnL{
+    display: inline-block;
+    min-width: 130px;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+    border: none;
+    vertical-align: middle;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.box-info #year,#month,#day{
+    width:calc((100% - 84px)/3);
+    display: inline-block;
+}
+#month{
+    width: 139px;
+    border: none;
+    background-color:#f3f4f6;
+}
+.box-info #phone{
+    position: relative;
+    display: inline-block;
+    width: 70%;
+}
+.btn-send{
+    position:absolute;
+    width: 25%;
+    font-size: 14px;
+    background-color:#b8becc;
+    color: white;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+    height: 58px;
+    line-height: 58px;
+}
+.box-limit{
+    overflow: hidden;
+    margin-top: 8px;
+}
+.box-limit button{
+    float:right;
+    border: 1px solid #d9d9d9;
+    color: #666;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}

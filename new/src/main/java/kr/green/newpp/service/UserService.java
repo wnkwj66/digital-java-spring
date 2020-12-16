@@ -1,10 +1,8 @@
 package kr.green.newpp.service;
 
-public interface UserService {
-    public String getUser(String id);
+import kr.green.newpp.vo.UserVo;
 
-	String getPw(String id);
-	
-	int getCount();
+public interface UserService {
+     boolean signup(UserVo user);
 
 }

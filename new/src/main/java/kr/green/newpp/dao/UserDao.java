@@ -2,10 +2,10 @@ package kr.green.newpp.dao;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface UserDao {
-	public String getUser(@Param("id")String id);
-	
-	public String getPw(@Param("id")String id);
+import kr.green.newpp.vo.UserVo;
 
-	public int getCount();
+public interface UserDao {
+	public UserVo getUser(@Param("id")String id);
+
+	public void insertUser(@Param("user")UserVo user);
 }
