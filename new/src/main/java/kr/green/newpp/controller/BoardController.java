@@ -1,25 +1,35 @@
 package kr.green.newpp.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.newpp.pagination.Criteria;
 import kr.green.newpp.pagination.PageMaker;
 import kr.green.newpp.service.BoardService;
 import kr.green.newpp.service.UserService;
+import kr.green.newpp.utill.UploadFileUtils;
 import kr.green.newpp.vo.BoardVo;
 import kr.green.newpp.vo.UserVo;
 
@@ -31,6 +41,9 @@ public class BoardController {
 	private BoardService boardService;
 	@Autowired
 	private UserService userService;
+	
+	private String uploadPath="C:\\git\\uploadfiles";
+	
 	//게시판
 	@RequestMapping(value="/board/list", method = RequestMethod.GET)
 	public ModelAndView boardListGet(ModelAndView mv,Criteria cri) {
@@ -71,9 +84,11 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.POST)
-	public ModelAndView boardregisterPost(ModelAndView mv, BoardVo board, HttpServletRequest request) {
+	public ModelAndView boardregisterPost(ModelAndView mv, BoardVo board, HttpServletRequest request, MultipartFile file2) throws IOException, Exception  {
 		logger.info("URI:/board/register:POST");
 		mv.setViewName("redirect:/board/list");
+		String fileName = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+		board.setFile(fileName);
 		boardService.registerBoard(board,request);
 		return mv;
 	}
@@ -123,6 +138,28 @@ public class BoardController {
 	    	map.put("like", like);
 	    }
 	    return map;
+	}
+	@ResponseBody
+	@RequestMapping("/board/download")
+	public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
+	    InputStream in = null;
+	    ResponseEntity<byte[]> entity = null;
+	    try{
+	        HttpHeaders headers = new HttpHeaders();
+	        in = new FileInputStream(uploadPath+fileName);
+
+	        fileName = fileName.substring(fileName.indexOf("_")+1);
+	        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+	        headers.add("Content-Disposition",  "attachment; filename=\"" 
+				+ new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
+	        entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
+	    }catch(Exception e) {
+	        e.printStackTrace();
+	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+	    }finally {
+	        in.close();
+	    }
+	    return entity;
 	}
 	
 }
