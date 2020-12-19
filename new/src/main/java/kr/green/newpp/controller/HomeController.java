@@ -65,23 +65,52 @@ public class HomeController {
 			 map.put("user", user);
 			 mv.addAllObjects(map);
 		 }
-	     return mv;
-	 }
-	 @RequestMapping(value = "/signout", method = RequestMethod.GET)
-		public ModelAndView signoutGet(ModelAndView mv,HttpServletRequest request) {
-			logger.info("URI:/signout:GET");
-			mv.setViewName("redirect:/");
-			request.getSession().removeAttribute("user");
-			return mv;
-		}
-		@RequestMapping(value ="/idCheck")
-		//idCheck
-		@ResponseBody
-		public Map<Object, Object> idcheck(@RequestBody String id){
-		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    UserVo user = userService.getUser(id);
-		    boolean check = user == null ? true : false;
-		    map.put("check", check);
-		    return map;
-		}
+		 return mv;
+	}
+	@RequestMapping(value = "/signout", method = RequestMethod.GET)
+	public ModelAndView signoutGet(ModelAndView mv,HttpServletRequest request) {
+		logger.info("URI:/signout:GET");
+		mv.setViewName("redirect:/");
+		request.getSession().removeAttribute("user");
+		return mv;
+	}
+	 //idCheck
+	@RequestMapping(value ="/idCheck")
+	@ResponseBody
+	public Map<Object, Object> idcheck(@RequestBody String id){
+	
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("res",userService.getUser(id)==null);
+    return map;
+	}
+	@RequestMapping(value ="/test2")
+	@ResponseBody
+	public Map<Object, Object> test2(@RequestBody TestVo test){
+	
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		System.out.println(test);
+		map.put("res", "success!!");
+	return map;
+	}
 }
+class TestVo{
+	private String id;
+	private int num;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	@Override
+	public String toString() {
+		return "TestVo [id=" + id + ", num=" + num + "]";
+	}
+
+} 

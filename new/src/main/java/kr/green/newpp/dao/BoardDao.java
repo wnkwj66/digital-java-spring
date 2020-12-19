@@ -24,4 +24,6 @@ public interface BoardDao {
 	void insertLike(@Param("boNum")int boNum, @Param("id")String id);
 
 	int isLike(@Param("boNum")int boNum, @Param("id")String id);
+
+	void updateBoardByUp(@Param("boNum")int boNum);
 }

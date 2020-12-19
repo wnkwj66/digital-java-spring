@@ -46,8 +46,7 @@ public class BoardServiceImp implements BoardService{
 	}
 
 	@Override
-	public void updateBoard(BoardVo board,UserVo user) {
-		board.setWriter(user.getId());
+	public void updateBoard(BoardVo board) {
 		board.setIsDel('N');
 		boardDao.updateBoard(board);
 	}
@@ -72,16 +71,19 @@ public class BoardServiceImp implements BoardService{
 	}
 
 	@Override
-	public int updateLike(String num, String id) {
-		if(boardDao.isLike(Integer.parseInt(num), id) == 0) {
-			boardDao.insertLike(Integer.parseInt(num), id);
-		}else {
+	public int updateLike(int num, String id) {
+		//추천 테이블에서 게시글 번호와 아이디와 일치하는 값이 있는 검색해서
+		//이미 추천했다면 -1을 리턴
+		if(boardDao.isLike(num,id)!= 0) {
 			return -1;
 		}
-
-		BoardVo board = boardDao.getBoard(Integer.parseInt(num));
-		boardDao.updateBoard(board);
-		board = boardDao.getBoard(Integer.parseInt(num));
+		//추천 테이블에 추천을 등록
+		boardDao.insertLike(num, id);
+		//게시글의 추천수만 업데이트
+		boardDao.updateBoardByUp(num);
+		//게시글 정보를 가져옴
+		BoardVo board = boardDao.getBoard(num);
 		return board.getLike();
+		
 	}
 }

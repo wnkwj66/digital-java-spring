@@ -19,12 +19,12 @@ public interface BoardService {
 
 	void registerBoard(BoardVo board,HttpServletRequest request);
 
-	void updateBoard(BoardVo board, UserVo user);
+	void updateBoard(BoardVo board);
 
 	void deleteBoard(Integer num, UserVo userVo);
 
 	PageMaker getPageMaker(Criteria cri);
 
-	int updateLike(String num, String id);
+	int updateLike(int num, String id);
 
 }

@@ -112,7 +112,9 @@ public class BoardController {
 	public ModelAndView boardModifyPost(ModelAndView mv,BoardVo board,HttpServletRequest request) {
 		logger.info("URI:/board/modify:Post");
 		mv.setViewName("redirect:/board/list");
-		boardService.updateBoard(board,userService.getUser(request));
+		logger.info("여기까진 됨");
+		boardService.updateBoard(board);
+		logger.info("여기도됨");
 		return mv;
 	}
 	//게시글 삭제
@@ -125,10 +127,11 @@ public class BoardController {
 		return mv;
 	}
 	//추천기능
-	@RequestMapping(value = "/board/like")
+	@RequestMapping(value = "/board/like", method=RequestMethod.POST)
 	@ResponseBody
-	public Map<Object, Object> boardLike(@RequestBody String num,HttpServletRequest r){
+	public Map<Object, Object> boardLike(@RequestBody int num,HttpServletRequest r){
 	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    //현재 로그인중인 유저정보
 	    UserVo user = userService.getUser(r);
 	    if(user == null) {
 	    	map.put("isUser", false);
@@ -146,6 +149,7 @@ public class BoardController {
 	    ResponseEntity<byte[]> entity = null;
 	    try{
 	        HttpHeaders headers = new HttpHeaders();
+	        System.out.println(uploadPath+fileName);
 	        in = new FileInputStream(uploadPath+fileName);
 
 	        fileName = fileName.substring(fileName.indexOf("_")+1);

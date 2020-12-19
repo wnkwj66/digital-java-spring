@@ -12,10 +12,8 @@
                         <strong>아이디</strong>
                         <span class="box-label">
                             <input type="text" placeholder="아이디를 입력하세요" name = "id">
-                            <div class="dup-fail-msg display-none">이미 사용중이거나 탈퇴한 아이디입니다.</div>
-							<div class="dup-suc-msg display-none">멋진 아이디네요.!!</div>
                         </span>
-                        <label for="" id="id-error" class="error"></label>
+                        <label for="" id="id-error" class="error"><div class="id-msg"></div></label>
                     </div>
                     <div class="box-inputForm">
                         <strong>비밀번호</strong>
@@ -108,7 +106,7 @@
 </form>
 <script>
 	$(function(){
-		$('#id').change(function(){
+		$('input[name=id]').change(function(){
 			var id = $(this).val();
 			$.ajax({
 		        async:true,
@@ -118,15 +116,16 @@
 		        dataType:"json",
 		        contentType:"application/json; charset=UTF-8",
 		        success : function(data){
-			        if(data['check']){
-				        $('.dup-suc-msg').removeClass('display-none')
-				        $('.dup-fail-msg').addClass('display-none')
-				    }else{
-				    	$('.dup-suc-msg').addClass('display-none')
-				        $('.dup-fail-msg').removeClass('display-none')
-					}
-		            
-		        }
+		        	 var str;
+			            if(data['res']){
+				            str = 
+					        '<p style="color:green;">사용 가능한 아아디입니다.</p>'
+			            }else{
+			            	str = 
+					        '<p style="color:red;">이미 가입되있거나 탈퇴한 아이디입니다.</p>'
+			            }
+			            $('.id-msg').html(str);
+		       }
 		    });
 		})
 	})
