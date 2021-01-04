@@ -3,5 +3,6 @@
 <aop-project name="portfolio"/>
 <aop-project name="spring"/>
 <aop-project name="springtest"/>
+<aop-project name="Test1"/>
 <aop-project name="new"/>
 </aop-reference-model>
