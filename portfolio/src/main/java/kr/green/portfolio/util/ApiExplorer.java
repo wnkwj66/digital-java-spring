@@ -65,7 +65,7 @@ public class ApiExplorer {
     }
     // 매소드
     //접근제한자(public) 리턴타입(static) 메서드명 (List<BusVo> 타입의 getBusJson(매개변수)) 
-    public static List<BusVo> getBusJson(String depTerminalId, String arrTerminalId, String depPlandTime) throws Exception{ //BusVo값을 List<>로 저장
+    public static List<BusVo> getBusJson(String depTerminalId, String arrTerminalId, String depPlandTime) throws Exception{
     	String result = getTicketingData(depTerminalId, arrTerminalId, depPlandTime); //getTicketingData(매개변수로 출발터미널 ,도착 터미널, 도착시간을 참조하는)메서드 를 String result에 넣음
     	//json처럼 생긴 String을 Json으로 만들기
     	List<BusVo> list = null; // list객체 생성 (List<BusVo>)
@@ -79,7 +79,7 @@ public class ApiExplorer {
     	System.out.println("response:"+j_response );
     	JSONObject j_body = (JSONObject) j_response.get("body");
     	System.out.println("body:"+j_body);
-    	System.out.println("totalCount:"+j_body.get("totalCount").getClass());
+    	System.out.println("totalCount:"+j_body.get("totalCount"));
     	
     	if((Long)j_body.get("totalCount") !=0) {
 	    	JSONObject j_items = (JSONObject) j_body.get("items"); //생성 ,선언

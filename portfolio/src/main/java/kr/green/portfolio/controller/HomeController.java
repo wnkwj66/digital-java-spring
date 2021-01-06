@@ -126,6 +126,7 @@ public class HomeController {
 		String arrTerminalNm = result.get(busVo.getArrTerminalNm());
 		System.out.println("arrTerminalNm:"+ arrTerminalNm);
 		String depPlandTime = busVo.getDepPlandTime();
+		System.out.println("출발시간 : "+ depPlandTime);
 		String arrPlandTime = busVo.getArrPlandTime();
 		
 		List<BusVo> go = ApiExplorer.getBusJson(depTerminalNm, arrTerminalNm, depPlandTime);

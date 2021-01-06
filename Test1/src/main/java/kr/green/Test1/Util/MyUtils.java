@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyUtils {
-public static Map<String, String> getTerminalId(){
+	
+	public static Map<String, String> getTerminalId(){
 		
 		Map<String, String> result = new HashMap<String, String>();
 		
@@ -17,8 +18,8 @@ public static Map<String, String> getTerminalId(){
 		result.put("안성중대","NAEK131");
 		result.put("안성대림","NAEK137");
 		result.put("대전복합","NAEK300");
-		result.put("대전복합","NAEK301");
 		result.put("천안","NAEK310");
+		
 		return result;
 		
 	}

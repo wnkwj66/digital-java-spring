@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.Test1.Util.ApiExplorer;
-import kr.green.Test1.busVo.busVo;
+import kr.green.Test1.Util.MyUtils;
+import kr.green.Test1.vo.busVo;
 
 /**
  * Handles requests for the application home page.
@@ -50,28 +51,25 @@ public class HomeController {
 	// 접근제한자 public 리턴타입 modleAndView 
 	public ModelAndView bus(busVo busVo, ModelAndView mv) throws Exception{
 		
-		Map<String , String> result = kr.green.Test1.Util.MyUtils.getTerminalId();
-	//		Iterator<String> it = result.keySet().iterator();
-//		while(it.hasNext()) {
-//			String tmp = it.next();
-//			System.out.println(tmp+":"+result.get(tmp));
-//		}
+		Map<String , String> result = MyUtils.getTerminalId();
+
 		System.out.println("3333333333333333333333333333333333");
 		
-		String depTerminalNm = result.get(busVo.getDepPlaceNm());
-		System.out.println("depTerminalNm:"+ depTerminalNm);
-		String arrTerminalNm = result.get(busVo.getArrPlaceNm());
-		System.out.println("arrTerminalNm:"+ arrTerminalNm);
+		String depPlaceNm = result.get(busVo.getDepPlaceNm());
+		System.out.println("depPlaceNm:"+ depPlaceNm);
+		
+		String arrPlaceNm = result.get(busVo.getArrPlaceNm());
+		System.out.println("arrPlaceNm:"+ arrPlaceNm);
+		
 		String depPlandTime = busVo.getDepPlandTime();
-		System.out.println("getDepPlandTime"+depTerminalNm);
 		String arrPlandTime = busVo.getArrPlandTime();
-		System.out.println("arrPlandTime"+arrPlandTime);
 		
-		List<busVo> go = ApiExplorer.getBusJson(depTerminalNm, arrTerminalNm, depPlandTime);
-		System.out.println("go: "+ go);
-		List<busVo> back = ApiExplorer.getBusJson(depTerminalNm, arrTerminalNm, arrPlandTime);
+		System.out.println("여기까진 실행됨");
+		List<busVo> go = ApiExplorer.getBusJson(depPlaceNm, arrPlaceNm, depPlandTime);
+		System.out.println("Go:"+ go);
+		List<busVo> back = ApiExplorer.getBusJson(depPlaceNm, arrPlaceNm, arrPlandTime);
 		
-		mv.addObject("go",go);
+//		mv.addObject("go",go);
 		mv.addObject("back",back);
 		mv.setViewName("/bus/bus");
 		return mv;
